@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/astrologerSettings.css">
     <title>Settings </title>
 
 
@@ -117,35 +118,56 @@
 
     </div>
 
-    <div class="header--wrapper">
-        <div class="settings--buttons">
-            Change Password
+<%--    <div class="header--wrapper">--%>
+<%--        <div class="settings--buttons">--%>
+<%--            Change Password--%>
+<%--        </div>--%>
+
+<%--    </div>--%>
+
+    <div class="container">
+        <h1>Settings</h1>
+        <form id="change-password-form">
+            <h2>Change Password</h2>
+            <div class="form-group">
+                <label for="current-password">Current Password</label>
+                <input type="password" id="current-password" name="current-password" required>
+            </div>
+            <div class="form-group">
+                <label for="new-password">New Password</label>
+                <input type="password" id="new-password" name="new-password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <button type="submit">Change Password</button>
+        </form>
+        <form id="deactivate-account-form" onsubmit="deactivateAccount">
+            <h2>Deactivate Account</h2>
+            <p>Are you sure you want to deactivate your account? This action cannot be undone.</p>
+            <button type="submit">Deactivate Account</button>
+        </form>
+        <div class="header--wrapper">
+            <div class="settings--buttons">
+                Contact the administrator for inquiries. [+94 123456789]
+            </div>
         </div>
 
     </div>
+
+
 
 <%--    <div class="header--wrapper">--%>
 <%--        <div class="settings--buttons">--%>
-<%--            Change Profile Picture--%>
+<%--            Delete Account--%>
 <%--        </div>--%>
 <%--    </div>--%>
-
-    <div class="header--wrapper">
-        <div class="settings--buttons">
-            Contact Admin [Post Inquires]
-        </div>
-    </div>
-
-
-    <div class="header--wrapper">
-        <div class="settings--buttons">
-            Delete Account
-        </div>
-    </div>
 
 
 </div>
 
 </body>
+<script src="js/astrologerSettings.js" defer></script>
 </html>
 

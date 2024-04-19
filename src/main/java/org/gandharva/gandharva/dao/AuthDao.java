@@ -147,4 +147,15 @@ public class AuthDao {
 
         return pst.executeUpdate() > 0;
     }
+
+    public static boolean updateUserStatus(String id, boolean isActivated) throws SQLException, ClassNotFoundException {
+        Connection connection = DBConnection.getInstance().getConnection();
+        String query = "UPDATE user SET isActivated=? WHERE id=?";
+        PreparedStatement pst = connection.prepareStatement(query);
+
+        pst.setBoolean(1, isActivated);
+        pst.setString(2, id);
+
+        return pst.executeUpdate() > 0;
+    }
 }

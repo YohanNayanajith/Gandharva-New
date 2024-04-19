@@ -216,4 +216,13 @@
         <servlet-name>paymentHashvalueGeneratorController</servlet-name>
         <url-pattern>/astrologer/request/payment/hashValue</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>deactivateUserController</servlet-name>
+        <servlet-class>org.gandharva.gandharva.controller.DeactivateUserController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deactivateUserController</servlet-name>
+        <url-pattern>/user/update/status</url-pattern>
+    </servlet-mapping>
 </web-app>

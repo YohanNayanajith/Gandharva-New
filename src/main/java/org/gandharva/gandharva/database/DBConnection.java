@@ -17,7 +17,8 @@ public class DBConnection {
     private final String host = "localhost";
     private final String port = "3306";
     private final String database = "gandharva";
-    private final String username = "root";
+    private final String username = "binali";
+//    private final String username = "root";
     private final String password = "password";
 
     private Connection connection;

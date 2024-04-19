@@ -132,8 +132,8 @@
                     <option value="">All</option>
                     <option value="NEW">New</option>
                     <option value="PAYMENT_PENDING">Payment Pending</option>
-                    <option value="DONE">Done</option>
                     <option value="PENDING">Pending</option>
+                    <option value="DONE">Done</option>
                 </select>
             </div>
         </div>

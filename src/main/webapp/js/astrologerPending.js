@@ -10,15 +10,20 @@ $(document).ready(function() {
         // contentType: "application/json",
         success: function(result) {
             $.each(result, function(index, x) {
+                let downloadButtonDisabled = x.status !== "PENDING";
+                let viewButtonDisabled = !(x.status === "DONE" || x.status === "PENDING");
+                let buttonStyle = (downloadButtonDisabled) ? 'style="background-color: #ddd; color: #aaa; border-color: #ddd;"' : '';
+                let buttonStyleView = (viewButtonDisabled) ? 'style="background-color: #ddd; color: #aaa; border-color: #ddd;"' : '';
+
                 $('#user-request-table').append(
                     `<tr>
                         <td>${x.startDate}</td>
                         <td>${x.firstName} ${x.lastName}</td>
                         <td>
                             <div class="pdf-buttons-container">
-                                <button id="downloadButton" class="pdf-buttons" onclick='downloadPDF("${x.horoscope}")'>Download PDF</button>
+                                <button id="downloadButton" class="pdf-buttons" onclick='downloadPDF("${x.horoscope}")' ${downloadButtonDisabled ? 'disabled' : ''} ${buttonStyle}>Download PDF</button>
                                 <div class="pdf-buttons-separator"></div>
-                                <button id="viewButton" class="pdf-buttons" onclick='viewPDF("${x.horoscope}")'>View PDF</button>
+                                <button id="viewButton" class="pdf-buttons" onclick='viewPDF("${x.horoscope}")' ${viewButtonDisabled ? 'disabled' : ''} ${buttonStyleView}>View PDF</button>
                             </div>
                         </td>
                         <td>
