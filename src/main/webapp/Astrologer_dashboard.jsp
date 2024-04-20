@@ -174,7 +174,20 @@
             </div>
 
             <div class="request--card light-purple">
-                <div class="card--header"id="card-header-value-status-accept">
+                <div class="card--header" id="card-header-value-status-accept">
+                    <script>
+                        // Get the button element by its id
+                        var button = document.getElementById("card-header-value-status-accept");
+
+
+                        // Attach a click event listener to the button
+                        button.addEventListener("click", function() {
+                            // Redirect
+                            window.location.href = "Astrologer_pending.jsp";
+                        });
+
+
+                    </script>
 
                 </div>
                 <%--                <span class="current--date" id="currentDate2"> </span>--%>
@@ -197,14 +210,38 @@
 
             <div class="request--card light-green">
                 <div class="card--header" id="card-header-value-status-done">
+                    <script>
+                        // Get the button element by its id
+                        var button = document.getElementById("card-header-value-status-done");
 
+
+                        // Attach a click event listener to the button
+                        button.addEventListener("click", function() {
+                            // Redirect
+                            window.location.href = "Astrologer_pending.jsp";
+                        });
+
+
+                    </script>
                 </div>
 
             </div>
 
             <div class="request--card light-blue">
                 <div class="card--header" id="card-header-value-status-decline">
+                    <script>
+                        // Get the button element by its id
+                        var button = document.getElementById("card-header-value-status-decline");
 
+
+                        // Attach a click event listener to the button
+                        button.addEventListener("click", function() {
+                            // Redirect
+                            window.location.href = "Astrologer_pending.jsp";
+                        });
+
+
+                    </script>
                 </div>
             </div>
         </div>
