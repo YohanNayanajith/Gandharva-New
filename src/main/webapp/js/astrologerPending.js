@@ -15,15 +15,19 @@ $(document).ready(function() {
                 let buttonStyle = (downloadButtonDisabled) ? 'style="background-color: #ddd; color: #aaa; border-color: #ddd;"' : '';
                 let buttonStyleView = (viewButtonDisabled) ? 'style="background-color: #ddd; color: #aaa; border-color: #ddd;"' : '';
 
+                console.log(x);
+
                 $('#user-request-table').append(
                     `<tr>
                         <td>${x.startDate}</td>
                         <td>${x.firstName} ${x.lastName}</td>
                         <td>
                             <div class="pdf-buttons-container">
-                                <button id="downloadButton" class="pdf-buttons" onclick='downloadPDF("${x.horoscope}")' ${downloadButtonDisabled ? 'disabled' : ''} ${buttonStyle}>Download PDF</button>
+                                <button id="downloadButton1" class="pdf-buttons" onclick='downloadPDF("${x.horoscope}")' ${downloadButtonDisabled ? 'disabled' : ''} ${buttonStyle}>Download PDF 1</button>
+                                <button id="downloadButton" class="pdf-buttons" onclick='downloadPDF("${x.horoscopeSecond}")' ${downloadButtonDisabled ? 'disabled' : ''} ${buttonStyle}>Download PDF 2</button>
                                 <div class="pdf-buttons-separator"></div>
-                                <button id="viewButton" class="pdf-buttons" onclick='viewPDF("${x.horoscope}")' ${viewButtonDisabled ? 'disabled' : ''} ${buttonStyleView}>View PDF</button>
+                                <button id="viewButton1" class="pdf-buttons" onclick='viewPDF("${x.horoscope}")' ${viewButtonDisabled ? 'disabled' : ''} ${buttonStyleView}>View PDF 1</button>
+                                <button id="viewButton" class="pdf-buttons" onclick='viewPDF("${x.horoscopeSecond}")' ${viewButtonDisabled ? 'disabled' : ''} ${buttonStyleView}>View PDF 2</button>
                             </div>
                         </td>
                         <td>
@@ -46,6 +50,8 @@ $(document).ready(function() {
                         <td>
                             ${x.feedback}
                             <i class="menu-icon fas fa-comment feedback-icon" onClick='provideFeedback("${x.id}")'></i>
+                            <i class="upload-icon fas fa-upload" onClick='uploadDocument("${x.id}")'></i>
+                            <i class="view-icon fas fa-eye" onClick='viewDocument("${x.id}", "${x.feedbackImage}")'></i>
                         </td>
                         <td>
                             <input type="text" placeholder="Not displayed to anyone else" value="${x.comments}" class="user-request-comment">
@@ -128,6 +134,11 @@ function downloadPDF(blobData) {
         .attr('href', URL.createObjectURL(blob))
         .attr('download', 'file.pdf')
         .text('Download PDF');
+
+    if (window.navigator.userAgent.indexOf('Chrome') !== -1) {
+        // Chrome may require a new tab for reliable download
+        downloadLink.attr('target', '_blank');
+    }
 
     $('body').append(downloadLink);
     downloadLink.get(0).click();
@@ -213,6 +224,86 @@ function provideFeedback(id) {
             });
         }
     });
+}
+
+async function uploadDocument(id) {
+    const { value: file } = await Swal.fire({
+      title: "Select image",
+      input: "file",
+      inputAttributes: {
+        "accept": "image/*",
+        "aria-label": "Upload your feedback as an image"
+      }
+    });
+    if (file) {
+//      const reader = new FileReader();
+//      reader.onload = (e) => {
+//        Swal.fire({
+//          title: "Your uploaded picture",
+//          imageUrl: e.target.result,
+//          imageAlt: "The uploaded picture"
+//        });
+//      };
+//      reader.readAsDataURL(file);
+    }
+}
+
+function viewDocument(id, feedbackImage) {
+    console.log(feedbackImage);
+    if (feedbackImage instanceof Blob) { // Check if it's a Blob object
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            Swal.fire({
+                title: "Your uploaded picture",
+                imageUrl: e.target.result,
+                imageAlt: "The uploaded picture"
+            });
+        };
+        reader.readAsDataURL(feedbackImage); // Pass feedbackImage directly
+    } else {
+        // If feedbackImage is not a Blob, check if it's a byte array and convert it to a Blob
+       const uint8Array = new Uint8Array(feedbackImage);
+
+       // Convert Uint8Array to a string
+       let binaryString = '';
+       for (let i = 0; i < uint8Array.length; i++) {
+           binaryString += String.fromCharCode(uint8Array[i]);
+       }
+
+       // Encode binary string to Base64
+       const base64Image = btoa(binaryString);
+       const imageUrl = 'data:image/png;base64,' + base64Image;
+//       window.open(imageUrl);
+
+//        Swal.fire({
+//                        title: 'User Image',
+//                        imageUrl: 'data:image/png;base64,' + feedbackImage,
+//                        imageAlt: 'User Image'
+//                    });
+
+        var popupWindow = window.open("", "User Image", "width=500,height=500");
+
+        // Construct the HTML content with the image
+        var htmlContent = '<html><head><title>User Image</title></head><body><img src="data:image/png;base64,' + base64Image + '" alt="User Image"></body></html>';
+
+        // Write the HTML content to the popup window
+        popupWindow.document.write(htmlContent);
+
+        if (base64Image instanceof Uint8Array) {
+//            const blob = new Blob([feedbackImage], { type: 'image/*' });
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                Swal.fire({
+                    title: "Your uploaded picture",
+                    imageUrl: e.target.result,
+                    imageAlt: "The uploaded picture"
+                });
+            };
+            reader.readAsDataURL(base64Image);
+        } else {
+            Swal.fire("Invalid feedback image!");
+        }
+    }
 }
 
 function updateComment(inputField, id) {

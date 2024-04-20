@@ -55,7 +55,7 @@ public class RequestDAO {
     public static List<Request> getRequests(String userId) throws SQLException, ClassNotFoundException {
         List<Request> requests = new ArrayList<>();
         Connection connection = DBConnection.getInstance().getConnection();
-        String query = "SELECT R.id, R.startDate, R.deadline, R.horoscope, R.status, R.comments, R.feedback, R.userId, R.astrologerId, U.firstName, U.lastName, U.email, U.userType FROM request R\n" +
+        String query = "SELECT R.id, R.startDate, R.deadline, R.horoscope, R.status, R.comments, R.feedback, R.userId, R.astrologerId, R.horoscopeSecond, R.feedbackImage, U.firstName, U.lastName, U.email, U.userType FROM request R\n" +
                 "INNER JOIN user U ON U.id = R.userId \n" +
                 "WHERE R.astrologerId=? ORDER BY deadline DESC;";
         PreparedStatement pst = connection.prepareStatement(query);
@@ -75,10 +75,12 @@ public class RequestDAO {
                         resultSet.getString(7),
                         UUID.fromString(resultSet.getString(8)),
                         UUID.fromString(resultSet.getString(9)),
-                        resultSet.getString(10),
-                        resultSet.getString(11),
+                        resultSet.getBytes(10),
+                        resultSet.getBytes(11),
                         resultSet.getString(12),
-                        resultSet.getString(13)
+                        resultSet.getString(13),
+                        resultSet.getString(14),
+                        resultSet.getString(15)
                 ));
             }
         }

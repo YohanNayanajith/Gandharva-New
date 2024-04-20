@@ -144,12 +144,12 @@
                 <table class="user-request-table" id="user-request-table-id">
                     <thead>
                     <tr>
-                        <th>Date</th>
-                        <th>Name of the customer</th>
-                        <th>Download Horoscope</th>
-                        <th>Status</th>
-                        <th>Feedbacks for the users</th>
-                        <th>Comments</th>
+                        <th style="text-align: center;">Date</th>
+                        <th style="text-align: center;">Customer Name</th>
+                        <th style="text-align: center;">Download Horoscope</th>
+                        <th style="text-align: center;">Status</th>
+                        <th style="text-align: center;">Feedbacks for the users</th>
+                        <th style="text-align: center;">Comments</th>
                     </tr>
                     </thead>
                     <tbody id="user-request-table">
