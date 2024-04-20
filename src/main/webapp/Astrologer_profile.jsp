@@ -178,9 +178,9 @@
         </div>
         <div class="user--info">
             <div class="search--box">
-                <i class="menu-icon fas fa-search"></i>
+                <i class="menu-icon fas fa-search">
 
-                <input type="text" placeholder="Search">
+                <input type="text" placeholder="Search"></i>
             </div>
 
             <img src="data:image/png;base64, <%= base64Image %>" alt="User Image">
@@ -210,11 +210,17 @@
     <div class="header--wrapper">
         <div class="profile--details--container">
             <div class="profile--details--container--image">
-
                 <div class="image--wrapper" >
+                    <!-- Image display -->
                     <img src="data:image/png;base64, <%= base64Image %>" alt="User Image" id="photo">
-                    <input type="file" id="profile-image" name="profile-image">
-                    <label for="profile-image" id="upload--button"> <i class="fas fa-camera" style="color: black"></i></label>
+
+                    <!-- Hidden file input for image upload -->
+                    <input type="file" id="profile-image" name="profile-image" style="display: none;">
+
+                    <!-- Camera icon with label to trigger file input -->
+                    <label for="profile-image" id="upload--button">
+                        <i class="fas fa-camera" style="color: black"></i>
+                    </label>
                 </div>
             </div>
 
