@@ -169,4 +169,15 @@ public class RequestDAO {
 
         return pst.executeUpdate() > 0;
     }
+
+    public static boolean updateFeedbackImage(String requestId, byte[] feedbackImage) throws SQLException, ClassNotFoundException {
+        Connection connection = DBConnection.getInstance().getConnection();
+        String query = "UPDATE request SET feedbackImage=? WHERE id=?";
+        PreparedStatement pst = connection.prepareStatement(query);
+
+        pst.setBytes(1, feedbackImage);
+        pst.setString(2, requestId);
+
+        return pst.executeUpdate() > 0;
+    }
 }
