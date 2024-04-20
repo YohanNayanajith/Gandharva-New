@@ -25,6 +25,9 @@ function updateFormSubmit() {
                 confirmButtonText: 'Ok',
                 confirmButtonColor: '#0E2C4B'
             });
+            setTimeout(function() {
+                location.reload(); // Reload the page
+            }, 2000);
         },
         error: function(error) {
             Swal.fire({
@@ -58,6 +61,9 @@ function updateProfileImage() {
                 confirmButtonText: 'Ok',
                 confirmButtonColor: '#0E2C4B'
             });
+            setTimeout(function() {
+                location.reload(); // Reload the page
+            }, 2000);
         },
         error: function(error) {
             Swal.fire({
@@ -69,4 +75,8 @@ function updateProfileImage() {
             });
         }
     });
+}
+
+function reloadPage() {
+    location.reload(); // Reload the page
 }

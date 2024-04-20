@@ -716,4 +716,8 @@ a{
     scale: 80%;
 }
 
-
+.deadline-passed {
+    background-color: #FFCCCC; /* Light red background */
+    color: #FF0000; /* Red text */
+    font-weight: bold; /* Bold text */
+}

@@ -144,9 +144,10 @@
                 <table class="user-request-table" id="user-request-table-id">
                     <thead>
                     <tr>
-                        <th style="text-align: center;">Date</th>
+                        <th style="text-align: center;">Start Date</th>
                         <th style="text-align: center;">Customer Name</th>
                         <th style="text-align: center;">Download Horoscope</th>
+                        <th style="text-align: center;">Deadline</th>
                         <th style="text-align: center;">Status</th>
                         <th style="text-align: center;">Feedbacks for the users</th>
                         <th style="text-align: center;">Comments</th>

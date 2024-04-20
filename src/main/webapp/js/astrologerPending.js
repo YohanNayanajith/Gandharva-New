@@ -18,7 +18,7 @@ $(document).ready(function() {
                 console.log(x);
 
                 $('#user-request-table').append(
-                    `<tr>
+                    `<tr class="${isDeadlinePassed(x.deadline) ? 'deadline-passed' : ''}">
                         <td>${x.startDate}</td>
                         <td>${x.firstName} ${x.lastName}</td>
                         <td>
@@ -30,6 +30,7 @@ $(document).ready(function() {
                                 <button id="viewButton" class="pdf-buttons" onclick='viewPDF("${x.horoscopeSecond}")' ${viewButtonDisabled ? 'disabled' : ''} ${buttonStyleView}>View PDF 2</button>
                             </div>
                         </td>
+                        <td>${x.deadline}</td>
                         <td>
                             ${x.status}
 
@@ -123,6 +124,17 @@ function filterTable(status) {
             $(this).hide();
         }
     });
+}
+
+function isDeadlinePassed(deadline) {
+    // Convert the deadline string to a Date object
+    const deadlineDate = new Date(deadline);
+
+    // Get the current date
+    const currentDate = new Date();
+
+    // Compare the deadline date with the current date
+    return deadlineDate < currentDate;
 }
 
 function downloadPDF(blobData) {
@@ -223,6 +235,9 @@ function provideFeedback(id) {
                             icon: "success",
                             confirmButtonColor: "#008CBA"
                         });
+                        setTimeout(function() {
+                            location.reload(); // Reload the page
+                        }, 3000);
                     } else {
                         Swal.fire({
                             title: "Feedback is not Submitted!",
@@ -295,6 +310,9 @@ function uploadImageToServer(file, id) {
                     // Close the modal if open
                     Swal.close();
                 });
+                setTimeout(function() {
+                    location.reload(); // Reload the page
+                }, 3000);
             } else {
                 handleError();
             }
@@ -379,6 +397,9 @@ function updateComment(inputField, id) {
                             icon: "success",
                             confirmButtonColor: "#008CBA"
                         });
+                        setTimeout(function() {
+                            location.reload(); // Reload the page
+                        }, 3000);
                     } else {
                         Swal.fire({
                             title: "Comment update is not success!",
@@ -435,6 +456,9 @@ function acceptRequest(id) {
                             icon: "success",
                             confirmButtonColor: "#008CBA"
                         });
+                        setTimeout(function() {
+                            location.reload(); // Reload the page
+                        }, 3000);
                     } else {
                         Swal.fire({
                             title: "Not Saved!",
@@ -488,6 +512,9 @@ function declineRequest(id) {
                 success: function(result) {
                     if (result == "1") {
                         Swal.fire("Saved!", "", "success");
+                        setTimeout(function() {
+                            location.reload(); // Reload the page
+                        }, 3000);
                     } else {
                         Swal.fire('Not Saved!', '', 'error');
                     }
@@ -526,6 +553,9 @@ function pendingRequest(id) {
                 success: function(result) {
                     if (result == "1") {
                         Swal.fire("Saved!", "", "success");
+                        setTimeout(function() {
+                            location.reload(); // Reload the page
+                        }, 3000);
                     } else {
                         Swal.fire('Not Saved!', '', 'error');
                     }
@@ -544,6 +574,10 @@ function pendingRequest(id) {
 function makePayment(id) {
     console.log('Making payment for ID: ' + id);
     window.location.href = "astrologerPayment";
+
+    setTimeout(function() {
+        location.reload(); // Reload the page
+    }, 3000);
     //    window.location.href = "astrologer";
     // after payment completed, Then we have to change tha status
     // PENDING

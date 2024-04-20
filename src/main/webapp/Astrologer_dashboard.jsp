@@ -25,7 +25,7 @@
     </a>
     <ul class="menu">
         <li class="active">
-            <a href="astrologer" >
+            <a href="astrologer">
                 <i class="menu-icon fas fa-tachometer-alt"></i>
                 <span>Dashboard</span>
             </a>
@@ -84,7 +84,7 @@
 
 </div>
 
-<div class="main--content" >
+<div class="main--content">
     <%
         String base64Image = null;
         String firstName = "Not";
@@ -121,7 +121,8 @@
     </div>
 
     <div class="card--container">
-        <h3 class="main--title">Welcome! <%= firstName + " " + lastName %></h3>
+        <h3 class="main--title">Welcome! <%= firstName + " " + lastName %>
+        </h3>
         <span class="current--date" id="currentDate"> </span>
 
         <!-- JavaScript to get and display the current date -->
@@ -138,7 +139,7 @@
         </script>
         <div class="card--wrapper">
             <div class="request--card light-red" id="pending">
-<%--                redirect to pending--%>
+                <%--                redirect to pending--%>
                 <script>
                     // Get the button element by its id
                     var button = document.getElementById("pending");
@@ -247,59 +248,23 @@
         </div>
     </div>
     <div class="tabular--wrapper">
-        <h3 class="main--title"> History for past 3 days </h3>
+        <h3 class="main--title"> Show Urgent requests </h3>
         <div class="table--container">
             <table>
                 <thead>
                 <tr>
-                    <th> Date </th>
+                    <th> Start Date</th>
+                    <th> Deadline</th>
                     <th> Name of the customer</th>
-                    <th> Feedback </th>
+                    <th> Feedback</th>
                     <th> Payment received</th>
-                    <th> Status </th>
-                    <th>  </th>
+                    <th> Status</th>
+                    <th></th>
 
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <td>
-                        2023-05-01
-                    </td>
-                    <td>
-                        Binali Ukwatte
-                    </td>
-                    <td>
-                        Positive
-                    </td>
-                    <td>
-                        yes
-                    </td>
-                    <td>
-                        Pending
-                    </td>
+                <tbody id="user-request-table">
 
-
-                </tr>
-                <tr>
-                    <td>
-                        2023-05-01
-                    </td>
-                    <td>
-                        Binali Ukwatte
-                    </td>
-                    <td>
-                        Positive
-                    </td>
-                    <td>
-                        yes
-                    </td>
-                    <td>
-                        Pending
-                    </td>
-
-
-                </tr>
                 </tbody>
             </table>
         </div>
@@ -310,4 +275,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
 <script src="js/astrologerDashboard.js" defer></script>
+<script src="js/astrologerDashboardRequest.js" defer></script>
 </html>

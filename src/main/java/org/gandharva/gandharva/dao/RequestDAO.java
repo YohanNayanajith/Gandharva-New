@@ -57,7 +57,7 @@ public class RequestDAO {
         Connection connection = DBConnection.getInstance().getConnection();
         String query = "SELECT R.id, R.startDate, R.deadline, R.horoscope, R.status, R.comments, R.feedback, R.userId, R.astrologerId, R.horoscopeSecond, R.feedbackImage, U.firstName, U.lastName, U.email, U.userType FROM request R\n" +
                 "INNER JOIN user U ON U.id = R.userId \n" +
-                "WHERE R.astrologerId=? ORDER BY deadline DESC;";
+                "WHERE R.astrologerId=? ORDER BY deadline ASC;";
         PreparedStatement pst = connection.prepareStatement(query);
         pst.setString(1,userId);
 
