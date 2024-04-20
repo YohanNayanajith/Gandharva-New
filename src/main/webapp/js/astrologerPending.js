@@ -126,29 +126,48 @@ function filterTable(status) {
 }
 
 function downloadPDF(blobData) {
-    const blob = new Blob([blobData], {
-        type: 'application/pdf'
-    });
+    // Split the string by commas and convert each substring to a number
+    const byteNumbers = blobData.split(',').map(Number);
 
-    const downloadLink = $('<a>')
-        .attr('href', URL.createObjectURL(blob))
-        .attr('download', 'file.pdf')
-        .text('Download PDF');
+    // Create a Uint8Array from the array of numbers
+    const uint8Array = new Uint8Array(byteNumbers);
 
+    // Create a Blob from the Uint8Array
+    const blob = new Blob([uint8Array], { type: 'application/pdf' });
+
+    // Create a download link element
+    const downloadLink = document.createElement('a');
+    downloadLink.href = URL.createObjectURL(blob);
+    downloadLink.download = 'file.pdf';
+    downloadLink.textContent = 'Download PDF';
+
+    // Check if the browser is Chrome
     if (window.navigator.userAgent.indexOf('Chrome') !== -1) {
         // Chrome may require a new tab for reliable download
-        downloadLink.attr('target', '_blank');
+        downloadLink.target = '_blank';
     }
 
-    $('body').append(downloadLink);
-    downloadLink.get(0).click();
-    downloadLink.remove();
+    // Append the download link to the document body
+    document.body.appendChild(downloadLink);
+
+    // Programmatically trigger the click event on the download link
+    downloadLink.click();
+
+    // Remove the download link from the document body
+    document.body.removeChild(downloadLink);
 }
 
 function viewPDF(blobData) {
-    const blob = new Blob([blobData], {
-        type: 'application/pdf'
-    });
+    // Split the string by commas and convert each substring to a number
+    const byteNumbers = blobData.split(',').map(Number);
+
+    // Create a Uint8Array from the array of numbers
+    const uint8Array = new Uint8Array(byteNumbers);
+
+    // Create a Blob from the Uint8Array
+    const blob = new Blob([uint8Array], { type: 'application/pdf' });
+
+    // Open the PDF in a new window
     window.open(URL.createObjectURL(blob));
 }
 
