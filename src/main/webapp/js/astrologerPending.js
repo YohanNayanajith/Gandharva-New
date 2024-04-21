@@ -65,12 +65,12 @@ $(document).ready(function() {
                 if (x.status === 'NEW') {
                     $(`#status-icons-${x.id}`).show();
                 } else if (x.status === 'PAYMENT_PENDING') {
+                    //console.log("Pending payment, User has to be change the status.");
                     $(`#payment-icon-${x.id}`).show();
                 } else if (x.status === 'DONE') {
                     $(`#all-status-icon-${x.id}`).show();
                 } else if (x.status === 'PENDING') {
-//                    $(`#pending-icons-${x.id}`).show();
-                    console.log("Pending payment, User has to be change the status.");
+                    $(`#pending-icons-${x.id}`).show();
                 }
                 initPagination();
             });
