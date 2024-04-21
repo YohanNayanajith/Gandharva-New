@@ -51,13 +51,13 @@ function showStatusIcons(x) {
     }
 
     if (x.status === 'NEW') {
-        $(`#status-icons-${x.id}`).show();
+        $(`#status-icons-dashboard-${x.id}`).show();
     } else if (x.status === 'PAYMENT_PENDING') {
-        $(`#payment-icon-${x.id}`).show();
+        $(`#payment-icon-dashboard-${x.id}`).show();
     } else if (x.status === 'DONE') {
-        $(`#all-status-icon-${x.id}`).show();
+        $(`#all-status-icon-dashboard-${x.id}`).show();
     } else if (x.status === 'PENDING') {
-        $(`#pending-icons-${x.id}`).show();
+        $(`#pending-icons-dashboard-${x.id}`).show();
     }
 }
 
@@ -74,7 +74,7 @@ function isDeadlinePassed(deadline) {
 
 function updateStatus(id, status) {
     console.log('Updating status for ID: ' + id);
-    $(`#status-icons-${id}`).empty();
+    $(`#status-icons-dashboard-${id}`).empty();
 
     const NEW = "NEW";
     const ACCEPT = "ACCEPT";

@@ -127,8 +127,8 @@
                 </script>
             </div>
             <div class="user-status-filter-container-right">
-                <label for="statusFilter" class="user-status-filter-label">Filter by Status:</label>
-                <select id="statusFilter" class="user-status-filter">
+                <label for="statusFilterPending" class="user-status-filter-label">Filter by Status:</label>
+                <select id="statusFilterPending" class="user-status-filter">
                     <option value="">All</option>
                     <option value="NEW">New</option>
                     <option value="PAYMENT_PENDING">Payment Pending</option>
@@ -141,7 +141,7 @@
         <div class="tabular--wrapper--user--request">
             <div class="pending--table">
                 <div id="pagination" class="user-request-table-pagination"></div>
-                <table class="user-request-table" id="user-request-table-id">
+                <table class="user-request-table" id="user-request-table-pending-id">
                     <thead>
                     <tr>
                         <th style="text-align: center;">Start Date</th>
@@ -153,7 +153,7 @@
                         <th style="text-align: center;">Comments</th>
                     </tr>
                     </thead>
-                    <tbody id="user-request-table">
+                    <tbody id="user-request-table-pending">
 
                     </tbody>
                 </table>

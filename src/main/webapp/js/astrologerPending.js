@@ -17,7 +17,7 @@ $(document).ready(function() {
 
                 console.log(x);
 
-                $('#user-request-table').append(
+                $('#user-request-table-pending').append(
                     `<tr class="${isDeadlinePassed(x.deadline) ? 'deadline-passed' : ''}">
                         <td>${x.startDate}</td>
                         <td>${x.firstName} ${x.lastName}</td>
@@ -69,7 +69,8 @@ $(document).ready(function() {
                 } else if (x.status === 'DONE') {
                     $(`#all-status-icon-${x.id}`).show();
                 } else if (x.status === 'PENDING') {
-                    $(`#pending-icons-${x.id}`).show();
+//                    $(`#pending-icons-${x.id}`).show();
+                    console.log("Pending payment, User has to be change the status.");
                 }
                 initPagination();
             });
@@ -79,7 +80,7 @@ $(document).ready(function() {
         }
     });
 
-    $('#statusFilter').change(function() {
+    $('#statusFilterPending').change(function() {
         filterTable($(this).val());
     });
 
@@ -108,16 +109,16 @@ function showPage(page) {
     const startIndex = (page - 1) * pageSize;
     const endIndex = startIndex + pageSize;
 
-    $('#user-request-table-id tbody tr').hide();
+    $('#user-request-table-pending-id tbody tr').hide();
 
-    $('#user-request-table-id tbody tr').slice(startIndex, endIndex).show();
+    $('#user-request-table-pending-id tbody tr').slice(startIndex, endIndex).show();
 
     currentPage = page;
 }
 
 function filterTable(status) {
-    $('#user-request-table tr').each(function() {
-        const rowStatus = $(this).find('td:nth-child(4)').text().trim();
+    $('#user-request-table-pending-id tbody tr').each(function() {
+        const rowStatus = $(this).find('td:nth-child(5)').text().trim();
         if (status === '' || rowStatus === status) {
             $(this).show();
         } else {
@@ -573,11 +574,12 @@ function pendingRequest(id) {
 
 function makePayment(id) {
     console.log('Making payment for ID: ' + id);
-    window.location.href = "astrologerPayment";
+    Swal.fire("Payment still processing", "Payment made by the user!", "info");
+//    window.location.href = "astrologerPayment";
 
-    setTimeout(function() {
-        location.reload(); // Reload the page
-    }, 3000);
+//    setTimeout(function() {
+//        location.reload(); // Reload the page
+//    }, 3000);
     //    window.location.href = "astrologer";
     // after payment completed, Then we have to change tha status
     // PENDING
