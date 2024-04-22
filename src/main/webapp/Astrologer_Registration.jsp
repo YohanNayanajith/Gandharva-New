@@ -242,7 +242,7 @@
     <div class="form-box">
         <h1 class="heading">Astrologer Registration</h1>
         <br>
-        <p class="step-text">Step 1 of 2</p>
+<%--        <p class="step-text">Step 1 of 2</p>--%>
         <br>
         <form enctype="multipart/form-data" id="registration-form">
             <label for="first_name">First Name:</label><br>
@@ -289,7 +289,10 @@
 
 
             <label for="email">E-mail: </label><br>
-            <input type="text" id="email" name="email" class="input-field"  required><br><br>
+            <input type="email" id="email" name="email" class="input-field"  required><br><br>
+
+            <label for="astrologerPayment">Set Your Base Price: </label><br>
+            <input type="number" id="astrologerPayment" name="email" class="input-field"  required><br><br>
 
 
             <label for="password">Password:</label><br>

@@ -150,7 +150,13 @@
         </form>
         <div class="header--wrapper">
             <div class="settings--buttons">
-                Contact the administrator for inquiries. [+94 123456789]
+                <div class="contact-info">
+                    <i class="fas fa-phone-alt contact-icon"></i>
+                    <div class="contact-text">
+                        <span class="contact-title">Contact the administrator for inquiries:</span>
+                        <a href="tel:+94123456789" class="contact-number">+94 123456789</a>
+                    </div>
+                </div>
             </div>
         </div>
 

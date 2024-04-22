@@ -58,3 +58,35 @@ button:hover {
     font-size: 0.8em;
     margin-top: 5px;
 }
+.contact-info {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-icon {
+    font-size: 20px;
+    color: white;
+    padding: 15px;
+    background-color: #0E2C4B;
+    border-radius: 50%;
+}
+
+.contact-text {
+    margin-left: 10px;
+}
+
+.contact-title {
+    font-weight: bold;
+}
+
+.contact-number {
+    color: #000000;
+    text-decoration: none;
+}
+
+.contact-number:hover {
+    text-decoration: underline;
+}
