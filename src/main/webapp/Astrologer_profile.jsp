@@ -83,8 +83,12 @@
             color: #777;
 
         }
-
-
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
     </style>
 
 
@@ -238,7 +242,8 @@
                     <h2> E-mail </h2>
                     <input type="text" class="input" id="emailUpdate" value='<c:out value="${sessionScope.astrologer.email}" />'>
                     <h2> Astrologer Payment </h2>
-                    <input type="number" class="input" id="astrologerPaymentUpdate" value='<c:out value="${sessionScope.astrologer.astrologerPayment}" />'>
+                    <input type="text" class="input" id="astrologerPaymentUpdate" value='<c:out value="${sessionScope.astrologer.astrologerPayment}" />'>
+                    <div id="error-container"></div>
                 </form>
             </div>
         </div>
@@ -258,5 +263,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
 <script src="js/astrologerProfile.js" defer></script>
+
 </html>
 
