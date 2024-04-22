@@ -1,44 +1,18 @@
 $(document).ready(function() {
-    //    async function convertImageToBase64(imagePath) {
-    //        // Create a new FileReader instance
-    //        var reader = new FileReader();
-    //
-    //        // Read the image file as a data URL
-    //        reader.readAsDataURL(imagePath);
-    //
-    //        // Use a promise to wait for the FileReader to finish reading
-    //        await new Promise((resolve, reject) => {
-    //            reader.onloadend = resolve;
-    //            reader.onerror = reject;
-    //        });
-    //
-    //        // Return the base64 data URL
-    //        return reader.result;
-    //    }
-
     $('#registration-form').submit(function(e) {
         e.preventDefault();
 
-        // Validate form data (add appropriate validation based on requirements)
-        //        if (!validateForm()) {
-        //            return; // Prevent submission if validation fails
-        //        }
-
-        // Extract and normalize form data
         let firstName = $('#first_name').val().trim();
         let lastName = $('#last_name').val().trim();
         let email = $('#email').val().trim();
         let password = $('#password').val().trim();
-        let userType = 'ASTROLOGER'; // Assuming fixed value based on prompt
-        let countryOfResidence = "Sri Lanka" // Use actual ID
+        let userType = 'ASTROLOGER';
+        let countryOfResidence = "Sri Lanka";
         let district = $('#district').val().trim();
-        let numberOfCasesHandled = 0; // Default value based on prompt
-        let yearsOfExperience = parseInt($('#experience').val().trim()); // Enforce integer
+        let numberOfCasesHandled = 0;
+        let yearsOfExperience = parseInt($('#experience').val().trim());
+        let astrologerPayment = parseInt($('#astrologerPayment').val().trim());
 
-        //        var imagePath = "images/img.png"; // Path to your image file
-        //        var base64Image = await convertImageToBase64(imagePath);
-
-        // Create a FormData object (recommended for file uploads)
         let formData = new FormData();
         formData.append('firstName', firstName);
         formData.append('lastName', lastName);
@@ -49,15 +23,14 @@ $(document).ready(function() {
         formData.append('district', district);
         formData.append('numberOfCasesHandled', numberOfCasesHandled);
         formData.append('yearsOfExperience', yearsOfExperience);
+        formData.append('astrologerPayment', astrologerPayment);
 
-        // Append selected certificate files
         let certificateFileUpload = $('#certificates').prop('files');
         if (certificateFileUpload.length > 0) {
             for (const file of certificateFileUpload) {
                 formData.append('certificateFileUpload', file);
             }
         }
-        //        formData.append("userImage",base64Image);
 
         certificateFileUpload = formData.get("certificateFileUpload");
 

@@ -162,7 +162,7 @@
             <input type="email" id="email" name="email" class="input-field" required><br>
 
             <label for="astrologerPayment" class="input-label">Set Your Base Price<span class="required">*</span></label><br>
-            <input type="number" id="astrologerPayment" name="email" class="input-field" required><br>
+            <input type="text" id="astrologerPayment" name="email" class="input-field" required><br>
 
             <label for="password" class="input-label">Password<span class="required">*</span></label><br>
             <input type="password" id="password" name="password" class="input-field" required><br>
@@ -194,6 +194,9 @@
         var password = document.getElementById("password");
         var confirmPassword = document.getElementById("confirmPassword");
         var submitBtn = document.getElementById("proceedBtn");
+        var experienceInput = document.getElementById("experience");
+        var emailInput = document.getElementById("email");
+        var basePriceInput = document.getElementById("astrologerPayment");
 
         confirmPassword.addEventListener("keyup", function() {
             var errorMessage = document.querySelector(".error-message");
@@ -220,6 +223,68 @@
                 });
             }
         });
+
+        experienceInput.addEventListener("input", function() {
+            validateExperience();
+        });
+
+        emailInput.addEventListener("input", function() {
+            validateEmail();
+        });
+
+        basePriceInput.addEventListener("input", function() {
+            validateBasePrice();
+        });
+
+        function validateExperience() {
+            var experienceInput = document.getElementById("experience");
+            var isValid = /^\d+$/.test(experienceInput.value); // Check if value is a positive integer
+
+            if (!isValid) {
+                removeErrorMessage(experienceInput); // Remove existing error message
+                experienceInput.setCustomValidity("Please enter a valid number for Years of Experience");
+                experienceInput.insertAdjacentHTML('afterend', '<div class="error-message">Please enter a valid number for Years of Experience</div>');
+            } else {
+                experienceInput.setCustomValidity("");
+                removeErrorMessage(experienceInput); // Remove error message if input is valid
+            }
+        }
+
+        function validateEmail() {
+            var emailInput = document.getElementById("email");
+            var isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value); // Check if value is a valid email address
+
+            if (!isValid) {
+                removeErrorMessage(emailInput); // Remove existing error message
+                emailInput.setCustomValidity("Please enter a valid email address");
+                emailInput.insertAdjacentHTML('afterend', '<div class="error-message">Please enter a valid email address</div>');
+            } else {
+                emailInput.setCustomValidity("");
+                removeErrorMessage(emailInput); // Remove error message if input is valid
+            }
+        }
+
+        function validateBasePrice() {
+            var basePriceInput = document.getElementById("astrologerPayment");
+            var isValid = /^\d+(\.\d{1,2})?$/.test(basePriceInput.value); // Check if value is a valid decimal number
+
+            if (!isValid) {
+                removeErrorMessage(basePriceInput); // Remove existing error message
+                basePriceInput.setCustomValidity("Please enter a valid base price");
+                basePriceInput.insertAdjacentHTML('afterend', '<div class="error-message">Please enter a valid base price</div>');
+            } else {
+                basePriceInput.setCustomValidity("");
+                removeErrorMessage(basePriceInput); // Remove error message if input is valid
+            }
+        }
+
+        function removeErrorMessage(inputElement) {
+            var errorMessage = inputElement.nextElementSibling;
+            if (errorMessage && errorMessage.classList.contains('error-message')) {
+                errorMessage.remove(); // Remove error message if it exists
+            }
+        }
+
     });
 </script>
 

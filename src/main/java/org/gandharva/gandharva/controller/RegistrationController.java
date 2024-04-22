@@ -164,6 +164,7 @@ public class RegistrationController extends HttpServlet {
                 System.out.println("Astrologer User");
                 int numberOfCasesHandled = Integer.parseInt(req.getParameter("numberOfCasesHandled"));
                 int yearsOfExperience = Integer.parseInt(req.getParameter("yearsOfExperience"));
+                int astrologerPayment = Integer.parseInt(req.getParameter("astrologerPayment"));
                 Part filePart = req.getPart("certificateFileUpload");
                 byte[] certificateFileUpload = null;
                 if (filePart != null) {
@@ -172,7 +173,7 @@ public class RegistrationController extends HttpServlet {
                     certificateFileUpload = fileContent.readAllBytes();
                 }
 
-                Astrologer astrologer = new Astrologer(parentUser,numberOfCasesHandled,yearsOfExperience,certificateFileUpload);
+                Astrologer astrologer = new Astrologer(parentUser,numberOfCasesHandled,yearsOfExperience, astrologerPayment,certificateFileUpload);
                 try {
                     success = AuthDao.astrologerRegistration(astrologer);
                 } catch (SQLException | ClassNotFoundException e) {
