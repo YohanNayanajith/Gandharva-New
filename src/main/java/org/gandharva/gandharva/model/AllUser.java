@@ -21,11 +21,13 @@ public class AllUser {
     private byte[] certificateFileUpload;
     private byte[] brFileUpload;
     private byte[] userImage;
+    private boolean isActivated;
+    private int astrologerPayment;
 
     public AllUser() {
     }
 
-    public AllUser(UUID id, String firstName, String lastName, UserType userType, String email, String password, String countryOfResidence, String district, String nic, LocalDate birthday, int numberOfCasesHandled, int yearsOfExperience, byte[] certificateFileUpload, byte[] brFileUpload, byte[] userImage) {
+    public AllUser(UUID id, String firstName, String lastName, UserType userType, String email, String password, String countryOfResidence, String district, String nic, LocalDate birthday, int numberOfCasesHandled, int yearsOfExperience, byte[] certificateFileUpload, byte[] brFileUpload, byte[] userImage, boolean isActivated) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -41,6 +43,7 @@ public class AllUser {
         this.certificateFileUpload = certificateFileUpload;
         this.brFileUpload = brFileUpload;
         this.userImage = userImage;
+        this.isActivated = isActivated;
     }
 
     public UUID getId() {
@@ -161,5 +164,21 @@ public class AllUser {
 
     public void setUserImage(byte[] userImage) {
         this.userImage = userImage;
+    }
+
+    public boolean isActivated() {
+        return isActivated;
+    }
+
+    public void setActivated(boolean activated) {
+        isActivated = activated;
+    }
+
+    public int getAstrologerPayment() {
+        return astrologerPayment;
+    }
+
+    public void setAstrologerPayment(int astrologerPayment) {
+        this.astrologerPayment = astrologerPayment;
     }
 }

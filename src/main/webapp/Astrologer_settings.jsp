@@ -127,7 +127,7 @@
 
     <div class="container">
         <h1>Settings</h1>
-        <form id="change-password-form">
+        <form id="change-password-form" onsubmit="updatePassword(event)">
             <h2>Change Password</h2>
             <div class="form-group">
                 <label for="current-password">Current Password</label>
@@ -141,9 +141,14 @@
                 <label for="confirm-password">Confirm Password</label>
                 <input type="password" id="confirm-password" name="confirm-password" required>
             </div>
+            <%
+                AllUser astrologer = (AllUser) request.getSession().getAttribute("astrologer");
+                String password = (astrologer != null) ? astrologer.getPassword() : "";
+            %>
+            <input type="hidden" id="astrologerPassword" value="<%= password %>">
             <button type="submit">Change Password</button>
         </form>
-        <form id="deactivate-account-form" onsubmit="deactivateAccount">
+        <form id="deactivate-account-form" onsubmit="deactivateAccount(event)">
             <h2>Deactivate Account</h2>
             <p>Are you sure you want to deactivate your account? This action cannot be undone.</p>
             <button type="submit">Deactivate Account</button>
@@ -168,6 +173,8 @@
 </div>
 
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
 <script src="js/astrologerSettings.js" defer></script>
 </html>
 

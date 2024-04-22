@@ -124,6 +124,17 @@ body{
     margin-bottom: 1rem;
 }
 
+.header--wrapper-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: white;
+    border-radius: 10px;
+    padding: 10px 2rem;
+    margin-bottom: 1rem;
+}
+
 .header--title{
     color: #24333E;
 

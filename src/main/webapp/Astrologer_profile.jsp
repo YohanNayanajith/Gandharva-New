@@ -207,7 +207,7 @@
         </script>
 
     </div>
-    <div class="header--wrapper">
+    <div class="header--wrapper-container">
         <div class="profile--details--container">
             <div class="profile--details--container--image">
                 <div class="image--wrapper" >
@@ -237,6 +237,8 @@
                     <input type="text" class="input" id="districtUpdate" value='<c:out value="${sessionScope.astrologer.district}" />'>
                     <h2> E-mail </h2>
                     <input type="text" class="input" id="emailUpdate" value='<c:out value="${sessionScope.astrologer.email}" />'>
+                    <h2> Astrologer Payment </h2>
+                    <input type="number" class="input" id="astrologerPaymentUpdate" value='<c:out value="${sessionScope.astrologer.astrologerPayment}" />'>
                 </form>
             </div>
         </div>

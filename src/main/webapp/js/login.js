@@ -126,15 +126,16 @@ $(document).ready(function() {
                         confirmButtonText: "Ok",
                         confirmButtonColor: '#932828',
                     })
-                } else if (result == '6') {
+                } else if (result == '7') {
                     Swal.fire({
                         icon: 'error',
-                        title: 'Login unsuccessfully!',
-                        text: 'You are bang! Please contact our administration!',
+                        title: 'User Deactivated!',
+                        text: 'You are banned! Please contact our administration!',
                         confirmButtonText: "Ok",
                         confirmButtonColor: '#932828',
                     })
                 } else {
+                    console.log(result);
                     Swal.fire({
                         icon: 'error',
                         title: 'Login unsuccessfully!',

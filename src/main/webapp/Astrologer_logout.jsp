@@ -95,7 +95,7 @@
         <input type="text" placeholder="Search">
       </div>
 
-      <a href="Astrologer_profile.jsp"> <img src="images/img.png"> </a>
+        <a href="Astrologer_profile.jsp"> <img src="images/img.png"> </a>
 
     </div>
 

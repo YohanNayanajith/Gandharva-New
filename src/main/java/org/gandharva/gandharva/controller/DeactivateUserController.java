@@ -16,7 +16,7 @@ public class DeactivateUserController extends HttpServlet {
         PrintWriter out = resp.getWriter();
         resp.setContentType("text/plain");
 
-        boolean isActivated = Boolean.parseBoolean(req.getParameter("`isActivated`"));
+        boolean isActivated = Boolean.parseBoolean(req.getParameter("isActivated"));
 
         HttpSession session = req.getSession();
         String id = (String) session.getAttribute("id");

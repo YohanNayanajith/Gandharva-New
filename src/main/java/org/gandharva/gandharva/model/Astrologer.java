@@ -6,6 +6,7 @@ public class Astrologer extends ParentUser {
     private int numberOfCasesHandled;
     private int yearsOfExperience;
     private byte[] certificateFileUpload; // Assuming blob is represented as a byte array
+    private int astrologerPayment;
 
     public  Astrologer(){}
 
@@ -50,5 +51,13 @@ public class Astrologer extends ParentUser {
 
     public void setCertificateFileUpload(byte[] certificateFileUpload) {
         this.certificateFileUpload = certificateFileUpload;
+    }
+
+    public int getAstrologerPayment() {
+        return astrologerPayment;
+    }
+
+    public void setAstrologerPayment(int astrologerPayment) {
+        this.astrologerPayment = astrologerPayment;
     }
 }

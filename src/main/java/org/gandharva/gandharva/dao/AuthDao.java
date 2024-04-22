@@ -90,6 +90,7 @@ public class AuthDao {
             allUser.setCountryOfResidence(resultSet.getString(7));
             allUser.setDistrict(resultSet.getString(8));
             allUser.setUserImage(resultSet.getBytes(15));
+            allUser.setActivated(resultSet.getBoolean(17));
 
             if(allUser.getUserType().equals(UserType.USER) || allUser.getUserType().equals(UserType.PREMIUM_USER) || allUser.getUserType().equals(UserType.STANDARD_USER)){
                 allUser.setNic(resultSet.getString(9));
@@ -98,6 +99,7 @@ public class AuthDao {
                 allUser.setNumberOfCasesHandled(resultSet.getInt(11));
                 allUser.setYearsOfExperience(resultSet.getInt(12));
                 allUser.setCertificateFileUpload(resultSet.getBytes(13));
+                allUser.setAstrologerPayment(resultSet.getInt(16));
             } else if (allUser.getUserType().equals(UserType.EVENT_PLANNER)) {
                 allUser.setNumberOfCasesHandled(resultSet.getInt(11));
                 allUser.setYearsOfExperience(resultSet.getInt(12));
@@ -113,7 +115,7 @@ public class AuthDao {
 
     public static boolean updateAstrologer(Astrologer astrologer) throws SQLException, ClassNotFoundException {
         Connection connection = DBConnection.getInstance().getConnection();
-        String query = "UPDATE user SET firstName=?, lastName=?, district=?, email=?, yearsOfExperience=? WHERE id=?";
+        String query = "UPDATE user SET firstName=?, lastName=?, district=?, email=?, yearsOfExperience=?, astrologerPayment=?  WHERE id=?";
         PreparedStatement pst = connection.prepareStatement(query);
 
         pst.setString(1, astrologer.getFirstName());
@@ -122,6 +124,7 @@ public class AuthDao {
         pst.setString(4, astrologer.getEmail());
         pst.setInt(5, astrologer.getYearsOfExperience());
         pst.setString(6, astrologer.getId().toString());
+        pst.setInt(7, astrologer.getAstrologerPayment());
 
         return pst.executeUpdate() > 0;
     }

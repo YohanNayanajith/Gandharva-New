@@ -4,6 +4,7 @@ function updateFormSubmit() {
     let yearsOfExperience = $('#yearsOfExperienceUpdate').val().trim();
     let district = $('#districtUpdate').val().trim();
     let email = $('#emailUpdate').val().trim();
+    let astrologerPayment = $('#astrologerPaymentUpdate').val().trim();
 
     console.log(firstName);
 
@@ -15,7 +16,8 @@ function updateFormSubmit() {
             lastName: lastName,
             yearsOfExperience: yearsOfExperience,
             district: district,
-            email: email
+            email: email,
+            astrologerPayment: astrologerPayment
         },
         success: function(result) {
             Swal.fire({

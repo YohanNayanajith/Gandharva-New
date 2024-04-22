@@ -62,34 +62,38 @@ public class LoginController extends HttpServlet {
 
             AllUser allUser = AuthDao.getUser(loginData.getId().toString());
 
-            if (checkLogin(login, loginData)) {
-                switch (userType) {
-                    case PREMIUM_USER:
-                        session.setAttribute("premiumUser", allUser);
-                        out.print("1");
-                        break;
-                    case STANDARD_USER:
-                        session.setAttribute("standardUser", allUser);
-                        out.print("2");
-                        break;
-                    case ASTROLOGER:
-                        session.setAttribute("astrologer", allUser);
-                        out.print("3");
-                        break;
-                    case EVENT_PLANNER:
-                        session.setAttribute("eventPlanner", allUser);
-                        out.print("4");
-                        break;
-                    case ADMIN:
-                        session.setAttribute("admin", allUser);
-                        out.print("5");
-                        break;
-                    default:
-                        out.print("6");
-                        break;
+            if(allUser.isActivated()) {
+                if (checkLogin(login, loginData)) {
+                    switch (userType) {
+                        case PREMIUM_USER:
+                            session.setAttribute("premiumUser", allUser);
+                            out.print("1");
+                            break;
+                        case STANDARD_USER:
+                            session.setAttribute("standardUser", allUser);
+                            out.print("2");
+                            break;
+                        case ASTROLOGER:
+                            session.setAttribute("astrologer", allUser);
+                            out.print("3");
+                            break;
+                        case EVENT_PLANNER:
+                            session.setAttribute("eventPlanner", allUser);
+                            out.print("4");
+                            break;
+                        case ADMIN:
+                            session.setAttribute("admin", allUser);
+                            out.print("5");
+                            break;
+                        default:
+                            out.print("6");
+                            break;
+                    }
+                } else {
+                    out.print("6");
                 }
             } else {
-                out.print("6");
+                out.print("7");
             }
 
         } catch (SQLException e) {

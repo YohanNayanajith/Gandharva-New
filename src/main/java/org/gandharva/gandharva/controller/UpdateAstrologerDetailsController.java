@@ -27,6 +27,7 @@ public class UpdateAstrologerDetailsController extends HttpServlet {
         String district = req.getParameter("district");
         String email = req.getParameter("email");
         int yearsOfExperience = Integer.parseInt(req.getParameter("yearsOfExperience"));
+        int astrologerPayment = Integer.parseInt(req.getParameter("astrologerPayment"));
 
         HttpSession session = req.getSession();
         String idString = (String) session.getAttribute("id");
@@ -44,6 +45,7 @@ public class UpdateAstrologerDetailsController extends HttpServlet {
         astrologer.setDistrict(district);
         astrologer.setEmail(email);
         astrologer.setYearsOfExperience(yearsOfExperience);
+        astrologer.setAstrologerPayment(astrologerPayment);
 
         boolean success = false;
         try {
