@@ -9,14 +9,13 @@ import org.gandharva.gandharva.model.Payment;
 import org.gandharva.gandharva.model.Request;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.Base64;
 import java.util.List;
 import java.util.UUID;
@@ -68,16 +67,21 @@ public class PaymentController extends HttpServlet {
         }
 
         Date paymentDate = Date.valueOf(req.getParameter("paymentDate"));
+        Time paymentTime = Time.valueOf(req.getParameter("paymentTime"));
         String paymentMethod = req.getParameter("paymentMethod");
-        Date previousExpireDate = Date.valueOf(req.getParameter("previousExpireDate"));
-        String currency = req.getParameter("currency");
         double paymentAmount = Double.parseDouble(req.getParameter("paymentAmount"));
         String paymentStatus = req.getParameter("paymentStatus");
         String cusFirstName = req.getParameter("cusFirstName");
         String cusLastName = req.getParameter("cusLastName");
         String cusAddress = req.getParameter("cusAddress");
         String cusCity = req.getParameter("cusCity");
-        Date newExpireDate = Date.valueOf(req.getParameter("newExpireDate"));
+        Part filePart = req.getPart("statement");
+        byte[] statement = null;
+        if (filePart != null) {
+            System.out.println("File part is not null!");
+            InputStream fileContent = filePart.getInputStream();
+            statement = fileContent.readAllBytes();
+        }
 
         HttpSession session = req.getSession();
         String idString = (String) session.getAttribute("id");
@@ -93,7 +97,7 @@ public class PaymentController extends HttpServlet {
             return;
         }
 
-        var payment = new Payment(paymentDate, paymentMethod, previousExpireDate, currency, paymentAmount, "", paymentStatus, cusFirstName, cusLastName, cusAddress, cusCity, newExpireDate, requestId, userId);
+        var payment = new Payment(paymentDate, paymentTime, paymentAmount, paymentStatus, cusFirstName, cusLastName, cusAddress, cusCity, statement, requestId, userId);
 
         boolean success = false;
         try {
