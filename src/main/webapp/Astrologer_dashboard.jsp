@@ -274,6 +274,7 @@
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+<%--<script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.14.0/sha256.js" defer></script>--%>
 <script src="js/astrologerDashboard.js" defer></script>
 <script src="js/astrologerDashboardRequest.js" defer></script>
 </html>

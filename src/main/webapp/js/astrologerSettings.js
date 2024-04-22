@@ -1,7 +1,6 @@
 function updatePassword(event) {
     event.preventDefault();
 
-//    var astrologer = "<%= ((HttpSession) request.getSession()).getAttribute("astrologer") %>";
     var astrologerPassword = $("#astrologerPassword").val();
 
     console.log(astrologerPassword);
@@ -9,24 +8,54 @@ function updatePassword(event) {
     let currentPassword = $('#current-password').val().trim();
     let newPassword = $('#new-password').val().trim();
     let confirmPassword = $('#confirm-password').val().trim();
-
-    // Clear any previous error messages
     $('.error-message').remove();
 
     if (newPassword !== confirmPassword) {
-        // Display error message
         $('#confirm-password').after('<div class="error-message">Passwords do not match</div>');
-
-        // Highlight the error fields
         $('#new-password, #confirm-password').addClass('error');
     } else {
-        // Remove error message and highlight
         $('#confirm-password + .error-message').remove();
         $('#new-password, #confirm-password').removeClass('error');
 
-        // Proceed with form submission or other actions
         console.log("Passwords match. Proceed with form submission.");
+
+        let hashedPassword = obtainSHA(currentPassword);
+
+        console.log(hashedPassword);
+
+        if(astrologerPassword === hashedPassword){
+            $.ajax({
+                method: "POST",
+                url: "astrologer/update/password",
+                data: {
+                    password: currentPassword,
+                    newPassword: newPassword
+                },
+                success: function(result) {
+                    Swal.fire("Password update successfully!", "", "success");
+
+                    $('#change-password-form')[0].reset();
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        } else {
+            Swal.fire("Current Password is incorrect!", "", "error");
+        }
     }
+}
+
+function obtainSHA(s) {
+    var msgDigest = new jsSHA("SHA-256", "TEXT");
+    msgDigest.update(s);
+    var hash = msgDigest.getHash("HEX");
+
+    if (hash.charAt(0) === '0') {
+        hash = hash.slice(1);
+    }
+
+    return hash;
 }
 
 function deactivateAccount(event) {

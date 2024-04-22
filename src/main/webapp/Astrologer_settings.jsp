@@ -27,7 +27,7 @@
     </div>
     <ul class="menu">
         <li>
-            <a href="astrologer" >
+            <a href="astrologer">
                 <i class="menu-icon fas fa-tachometer-alt"></i>
                 <span>Dashboard</span>
             </a>
@@ -86,7 +86,7 @@
 
 </div>
 
-<div class="main--content" >
+<div class="main--content">
     <%
         String base64Image = null;
         if (session.getAttribute("id") == null) {
@@ -107,7 +107,9 @@
             <div class="search--box">
                 <i class="menu-icon fas fa-search"></i>
 
-                <input type="text" placeholder="Search">
+                <label>
+                    <input type="text" placeholder="Search">
+                </label>
             </div>
 
             <a href="Astrologer_profile.jsp">
@@ -117,13 +119,6 @@
         </div>
 
     </div>
-
-<%--    <div class="header--wrapper">--%>
-<%--        <div class="settings--buttons">--%>
-<%--            Change Password--%>
-<%--        </div>--%>
-
-<%--    </div>--%>
 
     <div class="container">
         <h1>Settings</h1>
@@ -160,21 +155,15 @@
         </div>
 
     </div>
-
-
-
-<%--    <div class="header--wrapper">--%>
-<%--        <div class="settings--buttons">--%>
-<%--            Delete Account--%>
-<%--        </div>--%>
-<%--    </div>--%>
-
-
 </div>
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+<%--<script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.14.0/sha256.js" defer></script>--%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/3.3.1/sha256.min.js"
+        integrity="sha512-qw5xqZrce8QejL/YnoVvHaXggvfJK3bP2rczgxPSL+JhACfJhOU6gG+/c1LFyRxIpwaF8pZlfwUXLIK+5EEiKA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
 <script src="js/astrologerSettings.js" defer></script>
 </html>
 
