@@ -1,265 +1,137 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Binali Ukwatte
-  Date: 02-11-2023
-  Time: 12.00
-  To change this template use File | Settings | File Templates.
---%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Astrologer Registration check</title>
+    <title>Astrologer Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         body {
             background-image: url('images/background.jpg');
             background-size: cover;
             background-repeat: no-repeat;
-
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
-            background: rgba(70, 70, 70, 0.55);
-            z-index: -1;
+            margin: 20px 0;
         }
 
-            * {
-                margin: 0;
-                padding: 0;
-
-            }
-
-            body {
-
-                padding: 0;
-                background-size: cover;
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                font-family: Arial, sans-serif;
-
-            }
-
-
-            header {
-                /*background-color: rgba(0, 0, 0, 0.8);*/
-                padding: 20px 0;
-            }
-
-            nav {
-
-                /*color: black;*/
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                max-width: 1200px;
-                height: 50px;
-                margin: 0 auto;
-                padding: 0 20px;
-            }
-
-
-            .logo img {
-                height: 75px;
-                margin-left: -120px;
-                border: none;
-            }
-
-
-            .navbar {
-
-                list-style-type: none;
-                display: flex;
-                gap: 10px;
-            }
-
-            .navbar li {
-                gap: 10px;
-                margin-left: 50px;
-            }
-
-            .navbar a {
-                color: white;
-                font-size: 20px;
-                transition: all 0.3s ease-in-out;
-            }
-
-        .navbar :hover {
-            transition: all 0.3s ease-in-out;
-            transform: translateY(3px);
+        .form-box {
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 40px;
+            border: 1px solid #000;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            max-width: 80%;
+            font-size: 16px;
         }
 
-        .submenu {
-            list-style-type: none;
-            display: none;
-            position: absolute;
-            background-color: rgba(0, 0, 0, 0.53);
+        .heading {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-field {
+            border: 1px solid #000;
+            border-radius: 5px;
             padding: 10px;
-            margin-left: 5px;
+            margin-bottom: 15px;
+            width: calc(100% - 22px);
         }
 
-        .navbar li:hover .submenu {
-            padding-top: 10px;
-            line-height: 50px;
-            display: block;
+        .select-field {
+            width: 100%; /* Set width for select field */
         }
 
+        .input-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
 
-            .buttons button {
-                font-size: 20px;
-                color: white;
-                background: none;
-                border: none;
-                cursor: pointer;
-                margin-left: 10px;
-            }
+        .proceed {
+            background-color: #000000;
+            color: white;
+            border: 2px solid #000000;
+            border-radius: 25px;
+            padding: 10px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            width: 100%;
+            margin-top: 20px;
+        }
 
-        .buttons button:hover {
-            transition: all 0.3s ease-in-out;
+        .proceed:hover {
+            background-color: #ffffff;
+            color: #000000;
             transform: translateY(-3px);
         }
 
-            main {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: calc(100vh - 120px); /* Adjust the height as needed */
-            }
-
-            .container {
-                display: flex;
-                margin-top: 50px;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-
-            }
-
-            .form-box {
-                background-color: rgba(255, 255, 255, 0.5);
-                padding: 20px;
-                border: 1px solid #000;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-                max-width: 80%;
-                margin: 0 auto;
-                font-size: 16px;
-        }
-
-
-
-        .heading {
-                text-align: center;
-            }
-
-        .step-text {
-            text-align: center;
-            font-weight: bold;
-        }
-
         .terms {
-            color: white;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .terms a {
+            color: black;
             text-decoration: none;
-            font-size: medium;
         }
 
         .terms a:hover {
             text-decoration: underline;
         }
-        .proceed {
 
-            align-items: center;
-            font-size: large;
-            background-color: rgba(255, 255, 255, 0.4);
-            color: black;
-            padding: 10px 20px;
-            border-radius: 50px;
-            border: none;
-            cursor: pointer;
-            margin-bottom: -400px;
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
         }
 
-        .proceed:hover {
-            background-color: rgba(255, 255, 255, 0.01);
-            transform: translateY(3px);
-            transition: all 0.3s ease-in-out;
-        }
-        a {
+        .login-link a {
             color: black;
             text-decoration: none;
-            }
-
-        a:hover {
-            transition: all 0.3s ease-in-out;
-            transform: translateY(-3px);
         }
 
-        .input-field{
-            border-color: black;
-            border-radius: 5px;
-            padding: 5px;
-            align: left;
+        .login-link a:hover {
+            text-decoration: underline;
         }
 
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
 
+        .required {
+            color: red;
+            margin-left: 3px; /* Adjust as needed */
+        }
     </style>
 </head>
 <body>
 
-
-<header>
-    <nav>
-        <div class="logo">
-            <a href="HomePage.jsp"> <img src='images/logo.png' alt="Logo" ></a>
-        </div>
-<%--        <ul class="navbar">--%>
-<%--            <li><a href="#">About Us</a></li>--%>
-<%--            <li><a href="#">Our Services</a>--%>
-<%--                <ul class="submenu">--%>
-<%--                    <li><a href="Astrologer_Registration.jsp">Astrologer</a></li>--%>
-<%--                    <li><a href="#">Event Planner</a></li>--%>
-<%--                </ul>--%>
-<%--            </li>--%>
-<%--            <li><a href="#">Pricing</a></li>--%>
-<%--            <li><a href="#">Help</a></li>--%>
-<%--        </ul>--%>
-
-        <div class="buttons">
-            <a href="Astrologer_Login.jsp"> <button class="signin">Sign In </button></a>
-            <a href="Astrologer_Registration.jsp"><button class="signup"> |  Sign Up </button> </a>
-        </div>
-
-
-    </nav>
-</header>
-
 <div class="container">
     <div class="form-box">
         <h1 class="heading">Astrologer Registration</h1>
-        <br>
-<%--        <p class="step-text">Step 1 of 2</p>--%>
-        <br>
         <form enctype="multipart/form-data" id="registration-form">
-            <label for="first_name">First Name:</label><br>
-            <input type="text" id="first_name" name="first_name" class="input-field" required><br><br>
+            <label for="first_name" class="input-label">First Name<span class="required">*</span></label><br>
+            <input type="text" id="first_name" name="first_name" class="input-field" required><br>
 
+            <label for="last_name" class="input-label">Last Name<span class="required">*</span></label><br>
+            <input type="text" id="last_name" name="last_name" class="input-field" required><br>
 
-            <label for="last_name">Last Name:</label><br>
-            <input type="text" id="last_name" name="last_name" class="input-field" required><br><br>
+            <label for="experience" class="input-label">Years of Experience<span class="required">*</span></label><br>
+            <input type="text" id="experience" name="year_of_experience" class="input-field" required><br>
 
-
-            <label for="experience">Years of Experience:</label><br>
-            <input type="text" id="experience" name="year_of_experience" class="input-field"  required><br><br>
-
-
-            <label for="district" >Select your District: </label><br>
-            <select id="district" name="district" class="input-field"  required>
-                <option value="" disabled selected>Select a District</option>
+            <label for="district" class="input-label">Select your District<span class="required">*</span></label><br>
+            <select id="district" name="district" class="input-field select-field" required>
+                <option value="" disabled selected>Select your District</option>
                 <option value="Ampara">Ampara</option>
                 <option value="Anuradhapura">Anuradhapura</option>
                 <option value="Badulla">Badulla</option>
@@ -284,51 +156,60 @@
                 <option value="Ratnapura">Ratnapura</option>
                 <option value="Trincomalee">Trincomalee</option>
                 <option value="Vavuniya">Vavuniya</option>
-            </select>
-            <br><br>
+            </select><br>
 
+            <label for="email" class="input-label">E-mail<span class="required">*</span></label><br>
+            <input type="email" id="email" name="email" class="input-field" required><br>
 
-            <label for="email">E-mail: </label><br>
-            <input type="email" id="email" name="email" class="input-field"  required><br><br>
+            <label for="astrologerPayment" class="input-label">Set Your Base Price<span class="required">*</span></label><br>
+            <input type="text" id="astrologerPayment" name="email" class="input-field" required><br>
 
-            <label for="astrologerPayment">Set Your Base Price: </label><br>
-            <input type="number" id="astrologerPayment" name="email" class="input-field"  required><br><br>
+            <label for="password" class="input-label">Password<span class="required">*</span></label><br>
+            <input type="password" id="password" name="password" class="input-field" required><br>
 
+            <label for="confirmPassword" class="input-label">Confirm Password<span class="required">*</span></label><br>
+            <input type="password" id="confirmPassword" name="confirm_password" class="input-field" required><br>
 
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password" class="input-field"  required><br><br>
+            <label for="certificates" class="input-label">Upload Certificates<span class="required">*</span></label><br>
+            <input type="file" id="certificates" name="certificate" class="input-field" accept=".pdf, .jpg, .png" multiple><br>
 
-
-            <label for="confirmPassword">Confirm Password:</label><br>
-            <input type="password" id="confirmPassword" name="confirm_password" class="input-field" >
-
-            <br><br>
-            <label for="certificates">Upload Certificates:</label><br>
-            <input type="file" id="certificates" name="certificate" class="input-field" accept=".pdf, .jpg, .png" multiple><br><br>
             <input type="submit" class="proceed" id="proceedBtn" name="proceed" value="Proceed">
 
-            <br>
-            <br>
-            <br>
-            <p class="terms"><a href="#">Terms and Conditions</a></p>
-            <br>
-
-            <b> <p> Already have an account? </b><a href="Astrologer_Login.jsp"> Sign In</a> </p>
+            <div class="terms">
+                <a href="#">Terms and Conditions</a>
+            </div>
+            <div class="login-link">
+                <span>Already have an account? </span><a href="Astrologer_Login.jsp">Sign In</a>
+            </div>
         </form>
     </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+<script src="js/astrologerRegistration.js" defer></script>
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         var password = document.getElementById("password");
         var confirmPassword = document.getElementById("confirmPassword");
         var submitBtn = document.getElementById("proceedBtn");
+        var experienceInput = document.getElementById("experience");
+        var emailInput = document.getElementById("email");
+        var basePriceInput = document.getElementById("astrologerPayment");
 
         confirmPassword.addEventListener("keyup", function() {
+            var errorMessage = document.querySelector(".error-message");
             if (password.value !== confirmPassword.value) {
                 confirmPassword.setCustomValidity("Passwords do not match");
+                if (!errorMessage) {
+                    confirmPassword.insertAdjacentHTML('afterend', '<div class="error-message">Passwords do not match</div>');
+                }
             } else {
                 confirmPassword.setCustomValidity("");
+                if (errorMessage) {
+                    errorMessage.remove();
+                }
             }
         });
 
@@ -339,16 +220,73 @@
                     icon: "error",
                     title: "Oops...",
                     text: "Passwords do not match!",
-                    // footer: '<a href="#">Why do I have this issue?</a>'
                 });
             }
         });
+
+        experienceInput.addEventListener("input", function() {
+            validateExperience();
+        });
+
+        emailInput.addEventListener("input", function() {
+            validateEmail();
+        });
+
+        basePriceInput.addEventListener("input", function() {
+            validateBasePrice();
+        });
+
+        function validateExperience() {
+            var experienceInput = document.getElementById("experience");
+            var isValid = /^\d+$/.test(experienceInput.value); // Check if value is a positive integer
+
+            if (!isValid) {
+                removeErrorMessage(experienceInput); // Remove existing error message
+                experienceInput.setCustomValidity("Please enter a valid number for Years of Experience");
+                experienceInput.insertAdjacentHTML('afterend', '<div class="error-message">Please enter a valid number for Years of Experience</div>');
+            } else {
+                experienceInput.setCustomValidity("");
+                removeErrorMessage(experienceInput); // Remove error message if input is valid
+            }
+        }
+
+        function validateEmail() {
+            var emailInput = document.getElementById("email");
+            var isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value); // Check if value is a valid email address
+
+            if (!isValid) {
+                removeErrorMessage(emailInput); // Remove existing error message
+                emailInput.setCustomValidity("Please enter a valid email address");
+                emailInput.insertAdjacentHTML('afterend', '<div class="error-message">Please enter a valid email address</div>');
+            } else {
+                emailInput.setCustomValidity("");
+                removeErrorMessage(emailInput); // Remove error message if input is valid
+            }
+        }
+
+        function validateBasePrice() {
+            var basePriceInput = document.getElementById("astrologerPayment");
+            var isValid = /^\d+(\.\d{1,2})?$/.test(basePriceInput.value); // Check if value is a valid decimal number
+
+            if (!isValid) {
+                removeErrorMessage(basePriceInput); // Remove existing error message
+                basePriceInput.setCustomValidity("Please enter a valid base price");
+                basePriceInput.insertAdjacentHTML('afterend', '<div class="error-message">Please enter a valid base price</div>');
+            } else {
+                basePriceInput.setCustomValidity("");
+                removeErrorMessage(basePriceInput); // Remove error message if input is valid
+            }
+        }
+
+        function removeErrorMessage(inputElement) {
+            var errorMessage = inputElement.nextElementSibling;
+            if (errorMessage && errorMessage.classList.contains('error-message')) {
+                errorMessage.remove(); // Remove error message if it exists
+            }
+        }
+
     });
 </script>
 
 </body>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
-<script src="js/astrologerRegistration.js" defer></script>
 </html>

@@ -123,8 +123,8 @@ public class AuthDao {
         pst.setString(3, astrologer.getDistrict());
         pst.setString(4, astrologer.getEmail());
         pst.setInt(5, astrologer.getYearsOfExperience());
-        pst.setString(6, astrologer.getId().toString());
-        pst.setInt(7, astrologer.getAstrologerPayment());
+        pst.setInt(6, astrologer.getAstrologerPayment());
+        pst.setString(7, astrologer.getId().toString());
 
         return pst.executeUpdate() > 0;
     }
