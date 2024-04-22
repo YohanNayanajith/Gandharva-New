@@ -206,12 +206,14 @@ body{
     flex-direction: column;
     justify-content: space-evenly;
     transition: all 0.5s ease-in-out;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .request--card:hover{
     cursor: pointer;
     transform: translateY(-5px);
 }
+
 
 .card--header{
     display: flex;
@@ -732,3 +734,55 @@ a{
     color: #FF0000; /* Red text */
     font-weight: bold; /* Bold text */
 }
+
+/*PAYMENT*/
+
+#payment-details {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.payment--table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.payment--th, .payment--td {
+    text-align: left;
+    padding: 5px;
+}
+
+.month{
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 18px;
+    color: #bebcbc;
+    letter-spacing: 2px;
+    font-family: "Courier New", courier, monospace;
+}
+
+.payment--card--text{
+    margin-left: 20px;
+}
+.payment--request--card{
+    margin-top: 10px;
+    /*background: lightgoldenrodyellow;*/
+    border-radius: 10px;
+    padding: 1.2rem;
+    width: 350px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    transition: all 0.5s ease-in-out;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.payment--request--card:hover{
+    /*cursor: pointer;*/
+    transform: translateY(-5px);
+}
+

@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link rel="stylesheet" href="styles.css">
-    <title>Dashboard</title>
+    <title>Payment</title>
 
 </head>
 <body>
@@ -104,17 +104,19 @@
 
         </div>
         <div class="user--info">
-            <div class="search--box">
-                <i class="menu-icon fas fa-search"></i>
+<%--            <div class="search--box">--%>
+<%--                <i class="menu-icon fas fa-search"></i>--%>
 
-                <input type="text" placeholder="Search">
-            </div>
+<%--                <input type="text" placeholder="Search">--%>
+<%--            </div>--%>
             <a href="Astrologer_profile.jsp">
                 <img src="data:image/png;base64, <%= base64Image %>" alt="User Image">
             </a>
         </div>
 
     </div>
+
+
 
     <div class="card--container">
         <%--        <h3 class="main--title">Today's Data</h3>--%>
@@ -133,52 +135,101 @@
             document.getElementById("currentDate").innerHTML = "As at " + formattedDate;
         </script>
 
-        <div class="tabular--wrapper">
-            <%--        <h3 class="main--title"> History for past 3 days </h3>--%>
-            <div class="table--container">
-                <table>
-                    <thead>
-                    <tr>
-                        <th> Payment ID </th>
-                        <th> Name of the customer</th>
-                        <th> Date </th>
-                        <th> Time </th>
-                        <th> Amount </th>
-                        <th> Statement </th>
+            <br>
+            <div class="card--wrapper">
+            <div class="payment--request--card light-purple">
+                <div class="card--header" id="card-header-value-status-total" >
+                    <i class="icon fas fa-credit-card dark-purple"></i>
+                    <div class="payment--card--text">
+                        <h3>Total Amount </h3>
+                        <h4> Rs. 50 000</h4>
+                        <div class="month"> For the Month of April</div>
+                    </div>
 
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>
-                            001
-                        </td>
-                        <td>
-                            Binali Ukwatte
-                        </td>
-                        <td>
-                            31-01-2024
-                        </td>
-                        <td>
-                            23.01
-                        </td>
-                        <td>
-                            LKR 1000
-                        </td>
-                        <td> <button class="transaction--statement">
-                            Download
-                        </button>
-                        </td>
+                </div>
+            </div>
 
 
-                    </tr>
-                    </tbody>
-                </table>
+                <br>
+                <div class="card--wrapper">
+                    <div class="payment--request--card light-green">
+                        <div class="card--header" id="card-header-value-status-last-payment" >
+                            <i class="icon fas fa-calendar-check dark-green"></i>
+                            <div class="text">
+                                <div class="payment--card--text">
+                                <h3>Date </h3>
+                              <h4> 25-03-2024</h4>
+                                <div class="month">Last payment done  </div>
+
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+<%--                <div class="request--card light-green">--%>
+<%--                    <div class="green--card--placement">--%>
+
+<%--                    <div class="card--header" id="card-header-value-status-done">--%>
+
+<%--                        <i class="icon fas fa-credit-card dark-purple"></i>--%>
+<%--                        <div class="text">--%>
+<%--                            <h3>Date </h3>--%>
+<%--&lt;%&ndash;                            <h4> 22/04/2024</h4>&ndash;%&gt;--%>
+<%--                            <div class="month"> Last Payment 20 Sept 2024</div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+                </div>
+            </div>
+            </div>
+        <br>
+            <div class="card--container">
+                <div class="tabular--wrapper">
+                                <%--        <h3 class="main--title"> History for past 3 days </h3>--%>
+                                <div class="table--container">
+                                    <table>
+                                        <thead>
+                                        <tr>
+                                            <th> Payment ID </th>
+                                            <th> Name of the customer</th>
+                                            <th> Date </th>
+                                            <th> Time </th>
+                                            <th> Amount </th>
+                                            <th> Statement </th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                001
+                                            </td>
+                                            <td>
+                                                Binali Ukwatte
+                                            </td>
+                                            <td>
+                                                31-01-2024
+                                            </td>
+                                            <td>
+                                                23.01
+                                            </td>
+                                            <td>
+                                                LKR 1000
+                                            </td>
+                                            <td> <button class="transaction--statement">
+                                                Download
+                                            </button>
+                                            </td>
+
+
+                                        </tr>
+                                        </tbody>
+                                    </table>
+            </div>
+
             </div>
         </div>
 
-    </div>
-</div>
+
+
 </body>
 </html>
 <%--remove paymentId--%>
