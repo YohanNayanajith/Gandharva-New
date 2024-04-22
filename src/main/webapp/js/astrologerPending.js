@@ -171,24 +171,12 @@ function downloadPDF(blobData) {
 }
 
 function viewPDF(blobData) {
-    // Split the string by commas and convert each substring to a number
     const byteNumbers = blobData.split(',').map(Number);
-
-    // Create a Uint8Array from the array of numbers
     const uint8Array = new Uint8Array(byteNumbers);
 
-    // Create a Blob from the Uint8Array
     const blob = new Blob([uint8Array], { type: 'application/pdf' });
-
-    // Open the PDF in a new window
     window.open(URL.createObjectURL(blob));
 }
-
-//$(document).on('click', '.feedback-icon', function () {
-//    let requestId = $(this).data('id');
-//    console.log('Feedback clicked for ID: ' + requestId);
-//
-//});
 
 function updateStatus(id, status) {
     console.log('Updating status for ID: ' + id);
