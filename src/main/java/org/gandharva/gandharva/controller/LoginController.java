@@ -62,7 +62,9 @@ public class LoginController extends HttpServlet {
 
             AllUser allUser = AuthDao.getUser(loginData.getId().toString());
 
-            if(allUser.isActivated()) {
+            System.out.println(allUser.getIsActivated());
+
+            if(allUser != null && allUser.getIsActivated()) {
                 if (checkLogin(login, loginData)) {
                     switch (userType) {
                         case PREMIUM_USER:

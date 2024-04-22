@@ -90,7 +90,7 @@ public class AuthDao {
             allUser.setCountryOfResidence(resultSet.getString(7));
             allUser.setDistrict(resultSet.getString(8));
             allUser.setUserImage(resultSet.getBytes(15));
-            allUser.setActivated(resultSet.getBoolean(17));
+            allUser.setActivated(resultSet.getBoolean(16));
 
             if(allUser.getUserType().equals(UserType.USER) || allUser.getUserType().equals(UserType.PREMIUM_USER) || allUser.getUserType().equals(UserType.STANDARD_USER)){
                 allUser.setNic(resultSet.getString(9));
@@ -99,7 +99,7 @@ public class AuthDao {
                 allUser.setNumberOfCasesHandled(resultSet.getInt(11));
                 allUser.setYearsOfExperience(resultSet.getInt(12));
                 allUser.setCertificateFileUpload(resultSet.getBytes(13));
-                allUser.setAstrologerPayment(resultSet.getInt(16));
+                allUser.setAstrologerPayment(resultSet.getInt(17));
             } else if (allUser.getUserType().equals(UserType.EVENT_PLANNER)) {
                 allUser.setNumberOfCasesHandled(resultSet.getInt(11));
                 allUser.setYearsOfExperience(resultSet.getInt(12));

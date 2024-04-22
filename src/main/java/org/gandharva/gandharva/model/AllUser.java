@@ -166,7 +166,7 @@ public class AllUser {
         this.userImage = userImage;
     }
 
-    public boolean isActivated() {
+    public boolean getIsActivated() {
         return isActivated;
     }
 
