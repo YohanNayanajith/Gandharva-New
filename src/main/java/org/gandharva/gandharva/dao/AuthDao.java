@@ -95,6 +95,11 @@ public class AuthDao {
             if(allUser.getUserType().equals(UserType.USER) || allUser.getUserType().equals(UserType.PREMIUM_USER) || allUser.getUserType().equals(UserType.STANDARD_USER)){
                 allUser.setNic(resultSet.getString(9));
                 allUser.setBirthday(resultSet.getDate(10).toLocalDate());
+                allUser.setDpphoto(resultSet.getBytes(19));
+                allUser.setFrontphoto(resultSet.getBytes(20));
+                allUser.setBackphoto(resultSet.getBytes(21));
+                allUser.setGender(resultSet.getString(22));
+                allUser.setAge(resultSet.getInt(23));
             } else if (allUser.getUserType().equals(UserType.ASTROLOGER)) {
                 allUser.setNumberOfCasesHandled(resultSet.getInt(11));
                 allUser.setYearsOfExperience(resultSet.getInt(12));
@@ -104,6 +109,8 @@ public class AuthDao {
                 allUser.setNumberOfCasesHandled(resultSet.getInt(11));
                 allUser.setYearsOfExperience(resultSet.getInt(12));
                 allUser.setBrFileUpload(resultSet.getBytes(14));
+            } else if (allUser.getUserType().equals(UserType.ADMIN)) {
+                allUser.setIsVerified(resultSet.getBoolean(18));
             }else {
                 throw new RuntimeException("UserType not present in the database");
             }

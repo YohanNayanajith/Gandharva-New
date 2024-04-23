@@ -23,6 +23,12 @@ public class AllUser {
     private byte[] userImage;
     private boolean isActivated;
     private int astrologerPayment;
+    private boolean isVerified;
+    private byte[] dpphoto;
+    private byte[] frontphoto;
+    private byte[] backphoto;
+    private String gender;
+    private int age;
 
     public AllUser() {
     }
@@ -180,5 +186,53 @@ public class AllUser {
 
     public void setAstrologerPayment(int astrologerPayment) {
         this.astrologerPayment = astrologerPayment;
+    }
+
+    public boolean isGetVerified() {
+        return isVerified;
+    }
+
+    public void setIsVerified(boolean verified) {
+        isVerified = verified;
+    }
+
+    public byte[] getDpphoto() {
+        return dpphoto;
+    }
+
+    public void setDpphoto(byte[] dpphoto) {
+        this.dpphoto = dpphoto;
+    }
+
+    public byte[] getFrontphoto() {
+        return frontphoto;
+    }
+
+    public void setFrontphoto(byte[] frontphoto) {
+        this.frontphoto = frontphoto;
+    }
+
+    public byte[] getBackphoto() {
+        return backphoto;
+    }
+
+    public void setBackphoto(byte[] backphoto) {
+        this.backphoto = backphoto;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }
