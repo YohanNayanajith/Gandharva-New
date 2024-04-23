@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Forgot Password</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -45,16 +45,6 @@
             border-color: #007bff;
         }
 
-        .remember-me {
-            margin-top: 20px;
-            text-align: left;
-        }
-
-        .remember-me input[type="checkbox"] {
-            margin-right: 5px;
-            vertical-align: middle;
-        }
-
         .btn {
             background-color: #007bff;
             color: #fff;
@@ -69,27 +59,15 @@
             background-color: #0056b3;
         }
 
-        .forgot-password {
-            margin-top: 20px;
+        .back-to-login {
+            margin-top: 40px;
             font-size: 14px;
             color: #333;
             text-decoration: none;
             transition: color 0.3s;
         }
 
-        .forgot-password:hover {
-            color: #007bff;
-        }
-
-        .sign-up-link {
-            display: block;
-            margin-top: 20px;
-            color: #333;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .sign-up-link:hover {
+        .back-to-login:hover {
             color: #007bff;
         }
     </style>
@@ -97,25 +75,14 @@
 <body>
 
 <div class="form-container">
-    <h1>Login</h1>
-    <form action="astrologerLogin" method="POST" id="login-form">
-        <input type="text" id="email" name="email" class="input-field" placeholder="Email" required><br>
-        <input type="password" id="password" name="password" class="input-field" placeholder="Password" required><br>
+    <h1>Forgot Password</h1>
+    <form action="#" method="POST" id="forgot-password-form">
+        <input type="text" id="email" name="email" class="input-field" placeholder="Enter your email" required><br>
 
-        <div class="remember-me">
-            <input type="checkbox" name="remember" id="remember">
-            <label for="remember">Remember Me</label>
-        </div>
-
-        <input type="submit" class="btn" id="proceedBtn" name="proceed" value="Login">
+        <input type="submit" class="btn" id="submitBtn" name="submit" value="Reset Password">
     </form>
-    <a href="NavigatePage.jsp" class="sign-up-link">Don't have an account? Sign Up</a>
-    <a href="forgotPassword.jsp" class="forgot-password">Forgot Password?</a>
+    <a href="Astrologer_Login.jsp" class="back-to-login">Back to Login</a>
 </div>
 
 </body>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
-<script src="js/login.js" defer></script>
 </html>

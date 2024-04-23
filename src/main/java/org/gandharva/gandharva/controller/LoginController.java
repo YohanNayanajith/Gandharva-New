@@ -4,7 +4,6 @@ import org.gandharva.gandharva.constants.UserType;
 import org.gandharva.gandharva.dao.AuthDao;
 import org.gandharva.gandharva.dao.LoginDAO;
 import org.gandharva.gandharva.model.AllUser;
-import org.gandharva.gandharva.model.Astrologer;
 import org.gandharva.gandharva.model.Login;
 import org.gandharva.gandharva.model.ParentUser;
 
