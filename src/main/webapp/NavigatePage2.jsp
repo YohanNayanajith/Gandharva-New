@@ -258,15 +258,15 @@
 
 <div class="container">
     <div class="form-box">
-        <a href="#"> <h1 class="heading">Astrologer</h1> </a>
+        <a href="#"> <h1 class="heading">Guest User</h1> </a>
     </div>
 
-<%--    <div class="form-box">--%>
-<%--        <a href="login"> <h1 class="heading">User</h1> </a>--%>
-<%--    </div>--%>
+    <div class="form-box">
+        <a href="login"> <h1 class="heading">Standard User</h1> </a>
+    </div>
 
     <div class="form-box">
-        <a href="astrologer"> <h1 class="heading">Event Planner</h1> </a>
+        <a href="astrologer"> <h1 class="heading">Premium User</h1> </a>
     </div>
 </div>
 
