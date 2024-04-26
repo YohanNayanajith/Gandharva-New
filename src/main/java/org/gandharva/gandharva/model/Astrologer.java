@@ -21,11 +21,12 @@ public class Astrologer extends ParentUser {
                 parentUser.getPassword(), parentUser.getCountryOfResidence(), parentUser.getDistrict());
     }
 
-    public Astrologer(ParentUser parentUser, int numberOfCasesHandled, int yearsOfExperience, byte[] certificateFileUpload) {
+    public Astrologer(ParentUser parentUser, int numberOfCasesHandled, int yearsOfExperience, int astrologerPayment, byte[] certificateFileUpload) {
         super(parentUser.getFirstName(), parentUser.getLastName(), parentUser.getUserType(), parentUser.getEmail(),
                 parentUser.getPassword(), parentUser.getCountryOfResidence(), parentUser.getDistrict(), parentUser.getUserImage());
         this.numberOfCasesHandled = numberOfCasesHandled;
         this.yearsOfExperience = yearsOfExperience;
+        this.astrologerPayment = astrologerPayment;
         this.certificateFileUpload = certificateFileUpload;
     }
 

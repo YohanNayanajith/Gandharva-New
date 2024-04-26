@@ -1,59 +1,56 @@
 package org.gandharva.gandharva.model;
 
 import java.sql.Date;
+import java.sql.Time;
 import java.util.UUID;
 
 public class Payment {
     private UUID id;
     private Date paymentDate;
-    private String paymentMethod;
-    private Date previousExpireDate;
-    private String currency;
+    private Time paymentTime;
+//    private String paymentMethod;
+//    private Date previousExpireDate;
+//    private String currency;
     private double paymentAmount;
-    private String authorizationToken;
+//    private String authorizationToken;
     private String paymentStatus;
     private String cusFirstName;
     private String cusLastName;
     private String cusAddress;
     private String cusCity;
-    private Date newExpireDate;
+    private byte[] statement;
+//    private Date newExpireDate;
     private UUID userId;
     private UUID requestId;
 
     public Payment() {}
 
-    public Payment(Date paymentDate, String paymentMethod, Date previousExpireDate, String currency, double paymentAmount, String authorizationToken, String paymentStatus, String cusFirstName, String cusLastName, String cusAddress, String cusCity, Date newExpireDate, UUID requestId, UUID userId) {
+    public Payment(Date paymentDate, Time paymentTime, double paymentAmount, String paymentStatus, String cusFirstName, String cusLastName, String cusAddress, String cusCity, byte[] statement, UUID userId, UUID requestId) {
         this.id = UUID.randomUUID();
         this.paymentDate = paymentDate;
-        this.paymentMethod = paymentMethod;
-        this.previousExpireDate = previousExpireDate;
-        this.currency = currency;
+        this.paymentTime = paymentTime;
         this.paymentAmount = paymentAmount;
-        this.authorizationToken = authorizationToken;
         this.paymentStatus = paymentStatus;
         this.cusFirstName = cusFirstName;
         this.cusLastName = cusLastName;
         this.cusAddress = cusAddress;
         this.cusCity = cusCity;
-        this.newExpireDate = newExpireDate;
-        this.requestId = requestId;
+        this.statement = statement;
         this.userId = userId;
+        this.requestId = requestId;
     }
 
-    public Payment(UUID id, Date paymentDate, String paymentMethod, Date previousExpireDate, String currency, double paymentAmount, String authorizationToken, String paymentStatus, String cusFirstName, String cusLastName, String cusAddress, String cusCity, Date newExpireDate, UUID userId, UUID requestId) {
+    public Payment(UUID id, Date paymentDate, Time paymentTime, double paymentAmount, String paymentStatus, String cusFirstName, String cusLastName, String cusAddress, String cusCity, byte[] statement, UUID userId, UUID requestId) {
         this.id = id;
         this.paymentDate = paymentDate;
-        this.paymentMethod = paymentMethod;
-        this.previousExpireDate = previousExpireDate;
-        this.currency = currency;
+        this.paymentTime = paymentTime;
         this.paymentAmount = paymentAmount;
-        this.authorizationToken = authorizationToken;
         this.paymentStatus = paymentStatus;
         this.cusFirstName = cusFirstName;
         this.cusLastName = cusLastName;
         this.cusAddress = cusAddress;
         this.cusCity = cusCity;
-        this.newExpireDate = newExpireDate;
+        this.statement = statement;
         this.userId = userId;
         this.requestId = requestId;
     }
@@ -74,44 +71,12 @@ public class Payment {
         this.paymentDate = paymentDate;
     }
 
-    public String getPaymentMethod() {
-        return paymentMethod;
-    }
-
-    public void setPaymentMethod(String paymentMethod) {
-        this.paymentMethod = paymentMethod;
-    }
-
-    public Date getPreviousExpireDate() {
-        return previousExpireDate;
-    }
-
-    public void setPreviousExpireDate(Date previousExpireDate) {
-        this.previousExpireDate = previousExpireDate;
-    }
-
-    public String getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
-
     public double getPaymentAmount() {
         return paymentAmount;
     }
 
     public void setPaymentAmount(double paymentAmount) {
         this.paymentAmount = paymentAmount;
-    }
-
-    public String getAuthorizationToken() {
-        return authorizationToken;
-    }
-
-    public void setAuthorizationToken(String authorizationToken) {
-        this.authorizationToken = authorizationToken;
     }
 
     public String getPaymentStatus() {
@@ -154,12 +119,20 @@ public class Payment {
         this.cusCity = cusCity;
     }
 
-    public Date getNewExpireDate() {
-        return newExpireDate;
+    public byte[] getStatement() {
+        return statement;
     }
 
-    public void setNewExpireDate(Date newExpireDate) {
-        this.newExpireDate = newExpireDate;
+    public void setStatement(byte[] statement) {
+        this.statement = statement;
+    }
+
+    public UUID getUserId() {
+        return userId;
+    }
+
+    public void setUserId(UUID userId) {
+        this.userId = userId;
     }
 
     public UUID getRequestId() {
@@ -170,11 +143,11 @@ public class Payment {
         this.requestId = requestId;
     }
 
-    public UUID getUserId() {
-        return userId;
+    public Time getPaymentTime() {
+        return paymentTime;
     }
 
-    public void setUserId(UUID userId) {
-        this.userId = userId;
+    public void setPaymentTime(Time paymentTime) {
+        this.paymentTime = paymentTime;
     }
 }

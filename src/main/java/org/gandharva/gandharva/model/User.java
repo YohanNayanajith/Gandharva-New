@@ -5,6 +5,11 @@ import java.time.LocalDate;
 public class User extends ParentUser {
     private String nic;
     private LocalDate birthday;
+    private byte[] dpphoto;
+    private byte[] frontphoto;
+    private byte[] backphoto;
+    private String gender;
+    private int age;
 
     public User() {}
 
@@ -39,5 +44,45 @@ public class User extends ParentUser {
 
     public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
+    }
+
+    public byte[] getDpphoto() {
+        return dpphoto;
+    }
+
+    public void setDpphoto(byte[] dpphoto) {
+        this.dpphoto = dpphoto;
+    }
+
+    public byte[] getFrontphoto() {
+        return frontphoto;
+    }
+
+    public void setFrontphoto(byte[] frontphoto) {
+        this.frontphoto = frontphoto;
+    }
+
+    public byte[] getBackphoto() {
+        return backphoto;
+    }
+
+    public void setBackphoto(byte[] backphoto) {
+        this.backphoto = backphoto;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }

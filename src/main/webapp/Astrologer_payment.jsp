@@ -27,7 +27,7 @@
     </a>
     <ul class="menu">
         <li>
-            <a href="astrologer" >
+            <a href="astrologer">
                 <i class="menu-icon fas fa-tachometer-alt"></i>
                 <span>Dashboard</span>
             </a>
@@ -92,8 +92,8 @@
 
 </div>
 
-<div class="main--content" >
-    <%
+<div class="main--content">
+        <%
         String base64Image = null;
         if (session.getAttribute("id") == null) {
             response.sendRedirect("login");
@@ -110,18 +110,17 @@
 
         </div>
         <div class="user--info">
-<%--            <div class="search--box">--%>
-<%--                <i class="menu-icon fas fa-search"></i>--%>
+            <%--            <div class="search--box">--%>
+            <%--                <i class="menu-icon fas fa-search"></i>--%>
 
-<%--                <input type="text" placeholder="Search">--%>
-<%--            </div>--%>
+            <%--                <input type="text" placeholder="Search">--%>
+            <%--            </div>--%>
             <a href="Astrologer_profile.jsp">
                 <img src="data:image/png;base64, <%= base64Image %>" alt="User Image">
             </a>
         </div>
 
     </div>
-
 
 
     <div class="card--container">
@@ -141,101 +140,77 @@
             document.getElementById("currentDate").innerHTML = "As at " + formattedDate;
         </script>
 
-            <br>
-            <div class="card--wrapper">
+        <br>
+        <div class="card--wrapper">
             <div class="payment--request--card light-purple">
-                <div class="card--header" id="card-header-value-status-total" >
+                <div class="card--header" id="card-header-value-status-total">
                     <i class="icon fas fa-credit-card dark-purple"></i>
-                    <div class="payment--card--text">
-                        <h3>Total Amount </h3>
-                        <h4> Rs. 50 000</h4>
-                        <div class="month"> For the Month of April</div>
+                    <div class="payment--card--text" id="payment--card--text">
+
                     </div>
 
                 </div>
             </div>
 
 
-                <br>
-                <div class="card--wrapper">
-                    <div class="payment--request--card light-green">
-                        <div class="card--header" id="card-header-value-status-last-payment" >
-                            <i class="icon fas fa-calendar-check dark-green"></i>
-                            <div class="text">
-                                <div class="payment--card--text">
-                                <h3>Date </h3>
-                              <h4> 25-03-2024</h4>
-                                <div class="month">Last payment done  </div>
+            <br>
+            <div class="card--wrapper">
+                <div class="payment--request--card light-green">
+                    <div class="card--header" id="card-header-value-status-last-payment">
+                        <i class="icon fas fa-calendar-check dark-green"></i>
+                        <div class="text">
+                            <div class="payment--card--text" id="payment--card--text-last">
 
-                            </div>
                             </div>
                         </div>
                     </div>
-<%--                <div class="request--card light-green">--%>
-<%--                    <div class="green--card--placement">--%>
-
-<%--                    <div class="card--header" id="card-header-value-status-done">--%>
-
-<%--                        <i class="icon fas fa-credit-card dark-purple"></i>--%>
-<%--                        <div class="text">--%>
-<%--                            <h3>Date </h3>--%>
-<%--&lt;%&ndash;                            <h4> 22/04/2024</h4>&ndash;%&gt;--%>
-<%--                            <div class="month"> Last Payment 20 Sept 2024</div>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
                 </div>
-            </div>
-            </div>
-        <br>
-            <div class="card--container">
-                <div class="tabular--wrapper">
-                                <%--        <h3 class="main--title"> History for past 3 days </h3>--%>
-                                <div class="table--container">
-                                    <table>
-                                        <thead>
-                                        <tr>
-                                            <th> Payment ID </th>
-                                            <th> Name of the customer</th>
-                                            <th> Date </th>
-                                            <th> Time </th>
-                                            <th> Amount </th>
-                                            <th> Statement </th>
+                <%--                <div class="request--card light-green">--%>
+                <%--                    <div class="green--card--placement">--%>
 
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>
-                                                001
-                                            </td>
-                                            <td>
-                                                Binali Ukwatte
-                                            </td>
-                                            <td>
-                                                31-01-2024
-                                            </td>
-                                            <td>
-                                                23.01
-                                            </td>
-                                            <td>
-                                                LKR 1000
-                                            </td>
-                                            <td> <button class="transaction--statement">
-                                                Download
-                                            </button>
-                                            </td>
+                <%--                    <div class="card--header" id="card-header-value-status-done">--%>
 
-
-                                        </tr>
-                                        </tbody>
-                                    </table>
-            </div>
-
+                <%--                        <i class="icon fas fa-credit-card dark-purple"></i>--%>
+                <%--                        <div class="text">--%>
+                <%--                            <h3>Date </h3>--%>
+                <%--&lt;%&ndash;                            <h4> 22/04/2024</h4>&ndash;%&gt;--%>
+                <%--                            <div class="month"> Last Payment 20 Sept 2024</div>--%>
+                <%--                        </div>--%>
+                <%--                    </div>--%>
             </div>
         </div>
+    </div>
+    <br>
+    <div class="card--container">
+        <div class="tabular--wrapper">
+            <%--        <h3 class="main--title"> History for past 3 days </h3>--%>
+            <div class="table--container">
+                <table>
+                    <thead>
+                    <tr>
+                        <th> Date</th>
+                        <th> Time</th>
+                        <th> Name of the customer</th>
+                        <th> Amount</th>
+                        <th> Statement</th>
 
+                    </tr>
+                    </thead>
+                    <tbody id="payment-details-table">
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
 
 
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+<script src="js/astrologerPayment.js" defer></script>
+
 </html>
 <%--remove paymentId--%>

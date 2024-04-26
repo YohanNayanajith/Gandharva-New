@@ -242,4 +242,13 @@
         <servlet-name>deactivateUserController</servlet-name>
         <url-pattern>/user/update/status</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>paymentGetAllController</servlet-name>
+        <servlet-class>org.gandharva.gandharva.controller.PaymentGetAllController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>paymentGetAllController</servlet-name>
+        <url-pattern>/payment/getAll/requestId</url-pattern>
+    </servlet-mapping>
 </web-app>
