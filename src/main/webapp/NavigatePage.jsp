@@ -24,8 +24,8 @@
             left: 0;
             width: 100%;
             height: 100vh;
-            background: rgba(70, 70, 70, 0.55);
-            z-index: -1;
+            /*background: rgba(70, 70, 70, 0.55);*/
+            /*z-index: -1;*/
         }
 
         * {
@@ -255,7 +255,7 @@
 
 <div class="container">
     <div class="form-box">
-        <a href="#"> <h1 class="heading">Astrologer</h1> </a>
+        <a href="registration"> <h1 class="heading">Astrologer</h1> </a>
     </div>
 
 <%--    <div class="form-box">--%>

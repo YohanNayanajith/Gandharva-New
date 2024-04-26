@@ -24,8 +24,8 @@
             left: 0;
             width: 100%;
             height: 100vh;
-            background: rgba(70, 70, 70, 0.55);
-            z-index: -1;
+            /*background: rgba(70, 70, 70, 0.55);*/
+            /*z-index: -1;*/
         }
 
         * {
@@ -262,12 +262,10 @@
     </div>
 
     <div class="form-box">
-        <a href="login"> <h1 class="heading">Standard User</h1> </a>
+        <a href="login"> <h1 class="heading">Paid User</h1> </a>
     </div>
 
-    <div class="form-box">
-        <a href="astrologer"> <h1 class="heading">Premium User</h1> </a>
-    </div>
+
 </div>
 
 </body>

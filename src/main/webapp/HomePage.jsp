@@ -372,36 +372,36 @@
 <section id="--1">
 
 
-<div class="section--1">
-    <video id="video-background" autoplay muted loop>
-        <source src="https://res.cloudinary.com/dejithzc7/video/upload/v1705389563/Gandharva/rings_odeouz.mp4" type="video/mp4"> </video>
-    <header>
-        <nav>
-            <div class="logo">
-                <img src='images/logo.png' alt="Logo">
-            </div>
-            <ul class="navbar">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Our Services</a>
-                    <ul class="submenu">
-                        <li><a href="ourServices-Astrologer.jsp">Astrologer</a></li>
+    <div class="section--1">
+        <video id="video-background" autoplay muted loop>
+            <source src="https://res.cloudinary.com/dejithzc7/video/upload/v1705389563/Gandharva/rings_odeouz.mp4" type="video/mp4"> </video>
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src='images/logo.png' alt="Logo">
+                </div>
+                <ul class="navbar">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Services</a>
+                        <ul class="submenu">
+                            <li><a href="ourServices-Astrologer.jsp">Astrologer</a></li>
 
-                        <li><a href="#">Event Planner</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">Help</a></li>
-            </ul>
-            <div class="buttons">
-                <a href="Astrologer_Login.jsp"> <button class="signin">Sign In </button></a>
-                <button class="divider"> | </button>
-                <a href="registration"> <button class="signup">Sign Up</button> </a>
-            </div>
+                            <li><a href="#">Event Planner</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+                <div class="buttons">
+                    <a href="#"> <button class="signin">Sign In </button></a>
+                    <button class="divider"> | </button>
+                    <a href="NavigatePage.jsp"> <button class="signup">Sign Up</button> </a>
+                </div>
 
-        </nav>
-    </header>
-    <button class="find-match"><a href="login">Find Your Match</a></button>
-</div>
+            </nav>
+        </header>
+        <button class="find-match"><a href="login">Find Your Match</a></button>
+    </div>
 </section>
 
 <section id="--2">
@@ -452,7 +452,7 @@
 
             </form>
 
-<%--            <img src="images/contact_us.jpg" id="contact--img">--%>
+            <%--            <img src="images/contact_us.jpg" id="contact--img">--%>
 
         </div>
 
@@ -482,8 +482,8 @@
         <div class="footer-section">
             <h3>Contact Us</h3>
             <ul>
-            <li>Email: info@gandarva.com</li>
-            <li>Phone: +94 77 1234 567</li>
+                <li>Email: info@gandarva.com</li>
+                <li>Phone: +94 77 1234 567</li>
             </ul>
         </div>
         <div class="footer-section">
