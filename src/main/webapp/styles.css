@@ -786,3 +786,19 @@ a{
     transform: translateY(-5px);
 }
 
+.complaint{
+    display: block;
+    font-size:1.2rem;
+    font-weight: normal;
+}
+
+.complaint--submit{
+        background: none;
+        color: green;
+}
+.complaint--submit:hover{
+    cursor: pointer;
+    background: green;
+    color: white;
+}
+

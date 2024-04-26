@@ -44,12 +44,12 @@
                 <span>User Requests</span>
             </a>
         </li>
-        <li>
-            <a href="Astrologer_reservations.jsp">
-                <i class="menu-icon fas fa-bookmark"></i>
-                <span>Reservations</span>
-            </a>
-        </li>
+<%--        <li>--%>
+<%--            <a href="Astrologer_reservations.jsp">--%>
+<%--                <i class="menu-icon fas fa-bookmark"></i>--%>
+<%--                <span>Reservations</span>--%>
+<%--            </a>--%>
+<%--        </li>--%>
         <li>
             <a href="Astrologer_schedule.jsp">
                 <i class="menu-icon fas fa-calendar"></i>
@@ -62,16 +62,22 @@
                 <span>Payment</span>
             </a>
         </li>
-        <li>
-            <a href="#">
-                <i class="menu-icon fas fa-bell"></i>
-                <span>Notifications</span>
-            </a>
-        </li>
+<%--        <li>--%>
+<%--            <a href="#">--%>
+<%--                <i class="menu-icon fas fa-bell"></i>--%>
+<%--                <span>Notifications</span>--%>
+<%--            </a>--%>
+<%--        </li>--%>
         <li>
             <a href="Astrologer_settings.jsp">
                 <i class="menu-icon fas fa-cog"></i>
                 <span>Settings</span>
+            </a>
+        </li>
+        <li>
+            <a href="Astrologer_complaints.jsp">
+                <i class="menu-icon fas fa-circle-question"></i>
+                <span>Support</span>
             </a>
         </li>
         <li class="logout">
