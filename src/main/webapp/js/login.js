@@ -31,7 +31,7 @@ $(document).ready(function() {
             // alert("Cant empty feilds");
             Swal.fire({
                 icon: 'error',
-                title: 'Login unsuccessfully!',
+                title: 'Login unsuccessful!',
                 text: 'Cannot be empty!',
                 confirmButtonText: "Ok",
                 confirmButtonColor: '#932828',
@@ -41,7 +41,7 @@ $(document).ready(function() {
             // alert("Password length should be greater than 3 characters");
             Swal.fire({
                 icon: 'error',
-                title: 'Login unsuccessfully!',
+                title: 'Login unsuccessful!',
                 text: 'Password length should be greater than 3 characters!',
                 confirmButtonText: "Ok",
                 confirmButtonColor: '#932828',
@@ -121,7 +121,7 @@ $(document).ready(function() {
                 } else if (result == '6') {
                     Swal.fire({
                         icon: 'error',
-                        title: 'Login unsuccessfully!',
+                        title: 'Login unsuccessful!',
                         text: 'You cannot log now.Please contact our administration!',
                         confirmButtonText: "Ok",
                         confirmButtonColor: '#932828',
@@ -138,7 +138,7 @@ $(document).ready(function() {
                     console.log(result);
                     Swal.fire({
                         icon: 'error',
-                        title: 'Login unsuccessfully!',
+                        title: 'Login unsuccessful!',
                         text: 'User name and password does not match!',
                         confirmButtonText: "Ok",
                         confirmButtonColor: '#932828',
@@ -149,7 +149,7 @@ $(document).ready(function() {
             error: function(error) {
                 Swal.fire({
                     icon: 'error',
-                    title: 'Login unsuccessfully!',
+                    title: 'Login unsuccessful!',
                     text: 'User name and password does not match!',
                     confirmButtonText: "Ok",
                     confirmButtonColor: '#932828',

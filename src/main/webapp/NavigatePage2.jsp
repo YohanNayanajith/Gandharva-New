@@ -219,10 +219,10 @@
             margin-right: 5px;
         }
 
-        .remember{
-            margin-top: 5px;
-            opacity: 0.75;
-        }
+        /*.remember{*/
+        /*    margin-top: 5px;*/
+        /*    opacity: 0.75;*/
+        /*}*/
 
 
     </style>
